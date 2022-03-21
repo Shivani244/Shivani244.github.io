@@ -27,4 +27,6 @@ function generate() {
         square[randomNumber].innerHTML = 2
      }
 }
-)
+
+  
+}
