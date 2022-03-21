@@ -9,7 +9,7 @@ let squares = []
 function createBoard() {
     for (let i=0; i < width*height; i++){
         square = document.createElement('div')
-        square.innerHTML = ''
+        square.innerHTML = 0
         gridDisplay.appendChild(square)
         squares.push(square)
    
@@ -23,7 +23,7 @@ createBoard()
 
 function generate() {
     let randomNumber = Math.floor(Math.random() * 25)
-     if (square[randomNumber].innerHTML == '' ) {
+     if (square[randomNumber].innerHTML == 0 ) {
         square[randomNumber].innerHTML = 2
      }
 }
