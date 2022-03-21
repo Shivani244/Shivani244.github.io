@@ -21,9 +21,9 @@ createBoard()
 //random grid
 function generate() {
     let randomNumber = Math.floor(Math.random() * squares.length)
-     (squares[randomNumber].innerHTML == 0)
+     if (squares[randomNumber].innerHTML == 0) {
         squares[randomNumber].innterHTML = 2
-
+     }
 }
 
 
