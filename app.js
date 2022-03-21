@@ -23,8 +23,8 @@ createBoard()
 
 function generate() {
     let randomNumber = Math.floor(Math.random() * 30)
-     if (square[randomNumber].innerHTML == 0 ) {
-        square[randomNumber].innerHTML = 2
+     if (squares[randomNumber].innerHTML == 0 ) {
+        squares[randomNumber].innerHTML = 2
      }
 }
 
