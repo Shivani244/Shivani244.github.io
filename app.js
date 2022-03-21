@@ -28,5 +28,5 @@ function generate() {
      }
 }
 
-
+generate()
 })
