@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   const gridDisplay = document.querySelector('.grid')
   const resultDisplay = document.getElementById(' result')
-const width = 4 
+const width = 5
+const height = 6
 let squares = []
 
 function createBoard() {
-    for (let i=0; i < width*width; i++){
+    for (let i=0; i < width*height; i++){
         square = document.createElement('div')
         square.innerHTML = 0
         gridDisplay.appendChild(square)
