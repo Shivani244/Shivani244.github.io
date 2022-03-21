@@ -5,6 +5,13 @@ const width = 5
 const height = 6
 let squares = []
 
+function generate() {
+    let randomNumber = Math.floor(Math.random() * squares.length)
+     if (squares[randomNumber].innerHTML == 0) {
+        squares[randomNumber].innerHTML = 2
+     }
+}
+
 function createBoard() {
     for (let i=0; i < width*height; i++){
         square = document.createElement('div')
@@ -19,12 +26,6 @@ function createBoard() {
 createBoard()
 
 //random grid
-function generate() {
-    let randomNumber = Math.floor(Math.random() * squares.length)
-     if (squares[randomNumber].innerHTML == 0) {
-        squares[randomNumber].innerHTML = 2
-     }
-}
 
 
 
