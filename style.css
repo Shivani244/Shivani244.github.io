@@ -19,14 +19,14 @@ h1.title {
       flex-wrap: wrap;
       width: 500px; 
       height: 600px; 
-      background-color: purple;
+      background-color: pink;
       border-radius: 25px;
   }
 
 .grid div{
     width: 100px; 
     height: 100px;
-    background-color: purple;
+    background-color: pink;
     font-size: 60px;
     text-align: center;
     font-weight: bold;
