@@ -24,7 +24,7 @@ createBoard()
 function generate() {
     let randomNumber = Math.floor(Math.random() * 25)
      if (square[randomNumber].innerHTML == '' ) {
-        square[randomNumber].innerHTML = '_'
+        square[randomNumber].innerHTML = 2
      }
 }
 )
