@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   //random grid
   
   function generate() {
-      let randomNumber = Math.floor(Math.random() * 25)
+      let randomNumber = Math.floor(Math.random() * 20 + 10)
        if (squares[randomNumber].innerHTML == '' ) {
           squares[randomNumber].innerHTML = '_'
        } else generate()
