@@ -70,7 +70,7 @@ console.log(squares)
 
   function moveRight() {
     for (let i = 0; i < width * height; i++) {
-        if(squares[i + 1].innerHTML == '' && squares[i].innerHTML != '' && i != 4 && i!= 9 && i!= 14 && i!=19 && i!=24 && i!=29){
+        if(squares[i + 1].innerHTML == '' && squares[i].innerHTML != '-' && squares[i].innerHTML != '' && i != 4 && i!= 9 && i!= 14 && i!=19 && i!=24 && i!=29){
             squares[i + 1].innerHTML = squares[i].innerHTML
             squares[i].innerHTML = ''
         }
@@ -79,8 +79,8 @@ console.log(squares)
 
   function moveLeft() {
     for (let  i= width*height; i>0; i--) {
-        if (squares[i - 1].innerHTML == '' && squares[i].innerHTML != '' && i != 0 && i!= 5 && i!= 10 && i!=15 && i!=20 && i!=25){
-            squares[i - 1].innerHTML = square[i].innerHTML
+        if (squares[i - 1].innerHTML == '' && squares[i].innerHTML != '-' && squares[i].innerHTML != '' && i != 0 && i!= 5 && i!= 10 && i!=15 && i!=20 && i!=25){
+            squares[i - 1].innerHTML = squares[i].innerHTML
             squares[i].innerHTML = ''
         
         }
@@ -89,7 +89,7 @@ console.log(squares)
 
   function moveUp() {
     for (let i= width*height; i>0; i--) {
-        if (squares[i - 5].innerHTML == '' && squares[i].innerHTML != '' && i != 0 && i!= 1 && i!= 2 && i!=3 && i!=4){
+        if (squares[i - 5].innerHTML == '' && squares[i].innerHTML != '-' && squares[i].innerHTML != '' && i != 0 && i!= 1 && i!= 2 && i!=3 && i!=4){
             squares[i - 5].innerHTML = squares[i].innerHTML
             squares[i].innerHTML = ''
         }
@@ -99,7 +99,7 @@ console.log(squares)
 
   function moveDown() {
     for (let i = 0; i < width * height; i++) {
-        if(squares[i].innerHTML == '' && squares[i].innerHTML != '' && i != 25 && i!= 26 && i!= 27 && i!=28 && i!=29){
+        if(squares[i+5].innerHTML == '' && squares[i].innerHTML != '-' && squares[i].innerHTML != '' && i != 25 && i!= 26 && i!= 27 && i!=28 && i!=29){
             squares[i + 5].innerHTML = squares[i].innerHTML
             squares[i].innerHTML = ''
         }
@@ -415,5 +415,3 @@ function addLetterZ() {
  }
 
 })
-
-
