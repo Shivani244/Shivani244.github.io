@@ -317,6 +317,9 @@ function addLetterZ() {
   document.onkeydown = function(e) {
     e.preventDefault();
     switch (e.keyCode) {
+        case 13: //enter
+            generate();
+            break;
         case 37: //left arrow
             moveLeft();
             break;
