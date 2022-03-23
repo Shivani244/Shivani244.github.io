@@ -97,7 +97,7 @@ console.log(squares)
 
   function moveDown() {
     for (let i = 0; i < width * height; i++) {
-        if (squares[i + 5].innerHTML == '' && squares[i].innerHTML == '-' && i != 24 && i!= 25 && i!= 26 && i!=27 && i!=28 && i!=29){
+        if (squares[i + 5].innerHTML == '' && squares[i].innerHTML == '-'  && i!= 25 && i!= 26 && i!=27 && i!=28 && i!=29){
             squares[i + 5].innerHTML = '-'
             squares[i].innerHTML = ''
         }
