@@ -4,15 +4,16 @@ html, body{
   
     background: rgb(248, 196, 245);
     color: black;
-    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucinda Sans Unicode','Lucinda Grande', 'Lucinda Sans', Arial, sans-serif;
     font-size: 18px;
 }
 h1.title {
-    font-size: 80px;
+    font-size: 50px;
     font-weight: bold;
-    margin: 7px 320px 50px;
-    display: block;
+    margin: 7px 385px 50px;
+    text-align: center;
     float: left;
+    border-bottom: solid 3px #ededf5;
   }
   .grid {
       display: flex; 
@@ -41,6 +42,7 @@ h1.title {
     display: flex; 
     flex-wrap: wrap; 
     margin:  10px 250px 10px; 
+    text-align: center;
 }
 
 .key-container button {
