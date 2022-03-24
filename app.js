@@ -93,7 +93,6 @@ console.log(squares)
             squares[i - 5].innerHTML = squares[i].innerHTML
             squares[i].innerHTML = ''
         }
-    
     }
   }
 
@@ -106,214 +105,15 @@ console.log(squares)
     }
   }
 
-function addLetterA() {
+function addLetter(letter) {
     for (let i = 0; i < width * height; i++) {
        if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'A'
+            squares[i].innerHTML = letter
 
         }
+    }
 }
-}
-function addLetterB() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'B'
 
-        }
-}
-}
-function addLetterC() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'C'
-
-        }
-}
-}
-function addLetterD() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'D'
-
-        }
-}
-}
-function addLetterE() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'E'
-
-        }
-}
-}
-function addLetterF() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'F'
-
-        }
-}
-}
-function addLetterG() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'G'
-
-        }
-}
-}
-function addLetterH() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'H'
-
-        }
-}
-}
-function addLetterI() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'I'
-
-        }
-}
-}
-function addLetterJ() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'J'
-
-        }
-}
-}
-function addLetterK() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'K'
-
-        }
-}
-}
-function addLetterL() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'L'
-
-        }
-}
-}
-function addLetterM() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'M'
-
-        }
-}
-}
-function addLetterN() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'N'
-
-        }
-}
-}
-function addLetterO() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'O'
-
-        }
-}
-}
-function addLetterP() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'P'
-
-        }
-}
-}
-function addLetterQ() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'Q'
-
-        }
-}
-}
-function addLetterR() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'R'
-
-        }
-}
-}
-function addLetterS() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'S'
-
-        }
-}
-}
-function addLetterT() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'T'
-
-        }
-}
-}
-function addLetterU() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'U'
-
-        }
-}
-}
-function addLetterV() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'V'
-
-        }
-}
-}
-function addLetterW() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'W'
-
-        }
-}
-}
-function addLetterX() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'X'
-
-        }
-}
-}
-function addLetterY() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'Y'
-
-        }
-}
-}
-function addLetterZ() {
-    for (let i = 0; i < width * height; i++) {
-       if (squares[i].innerHTML == '-'){
-            squares[i].innerHTML = 'Z'
-
-        }
-}
-}
   document.onkeydown = function(e) {
     e.preventDefault();
     switch (e.keyCode) {
@@ -333,82 +133,82 @@ function addLetterZ() {
            moveDown();
             break;
         case 65: //letter a
-            addLetterA();  
+            addLetter('A');  
             break; 
         case 66: 
-            addLetterB();  
+            addLetter('B');  
             break;  
         case 67: 
-            addLetterC();  
+            addLetter('C');  
             break;  
          case 68: 
-            addLetterD();  
+            addLetter('D');  
             break;
          case 69: 
-            addLetterE();  
+            addLetter('E');  
             break;  
         case 70: 
-            addLetterF();  
+            addLetter('F');  
             break;  
         case 71: 
-            addLetterG();  
+            addLetter('G');  
             break;   
         case 72: 
-            addLetterH();  
+            addLetter('H');  
             break;   
         case 73: 
-            addLetterI();  
+            addLetter('I');  
             break;  
         case 74:
-            addLetterJ(); 
+            addLetter('J'); 
             break; 
         case 75: 
-            addLetterK();  
+            addLetter('K');  
             break;  
         case 76: 
-            addLetterL();  
+            addLetter('L');  
             break;  
         case 77: 
-            addLetterM();  
+            addLetter('M');  
             break;  
         case 78: 
-            addLetterN();  
+            addLetter('N');  
             break;  
         case 79: 
-            addLetterO();  
+            addLetter('O');  
             break;  
          case 80: 
-            addLetterP();  
+            addLetter('P');  
             break;  
         case 81: 
-            addLetterQ();  
+            addLetter('Q');  
             break;  
         case 82: 
-            addLetterR();  
+            addLetter('R');  
             break; 
         case 83: 
-            addLetterS();  
+            addLetter('S');  
             break;  
         case 84: 
-            addLetterT();  
+            addLetter('T');  
             break;
         case 85: 
-            addLetterU();  
+            addLetter('U');  
             break;   
         case 86: 
-            addLetterV();  
+            addLetter('V');  
             break; 
         case 87: 
-            addLetterW();  
+            addLetter('W');  
             break; 
         case 88: 
-            addLetterX();  
+            addLetter('X');  
             break; 
         case 89: 
-            addLetterY();  
+            addLetter('Y');  
             break; 
         case 90: 
-            addLetterZ();  
+            addLetter('Z');  
             break; 
             
     }
