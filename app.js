@@ -78,7 +78,7 @@ console.log(squares)
   }
 
   function moveLeft() {
-    for (let  i= width*height; i>0; i--) {
+    for (let  i=29; i>0; i--) {
         if (squares[i - 1].innerHTML == '' && squares[i].innerHTML != '-' && squares[i].innerHTML != '' && i != 0 && i!= 5 && i!= 10 && i!=15 && i!=20 && i!=25){
             squares[i - 1].innerHTML = squares[i].innerHTML
             squares[i].innerHTML = ''
@@ -88,7 +88,7 @@ console.log(squares)
   }
 
   function moveUp() {
-    for (let i= width*height; i>0; i--) {
+    for (let i=29; i>0; i--) {
         if (squares[i - 5].innerHTML == '' && squares[i].innerHTML != '-' && squares[i].innerHTML != '' && i != 0 && i!= 1 && i!= 2 && i!=3 && i!=4){
             squares[i - 5].innerHTML = squares[i].innerHTML
             squares[i].innerHTML = ''
@@ -112,6 +112,14 @@ function addLetter(letter) {
 
         }
     }
+}
+    function deleteLetter(){
+    for (let i = 0; i < width * height; i++) {
+        if (squares[i].innerHTML != ''){
+             squares[i].innerHTML = '-'
+ 
+         }
+ }
 }
 
   document.onkeydown = function(e) {
@@ -210,6 +218,9 @@ function addLetter(letter) {
         case 90: 
             addLetter('Z');  
             break; 
+      case 8:
+            deleteLetter(); 
+            break;  
             
     }
  }
