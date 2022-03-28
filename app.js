@@ -121,7 +121,8 @@ function addLetter(letter) {
          }
  }
 }
-
+document.body.grid.style.background = "#587b2e"
+    
   document.onkeydown = function(e) {
     e.preventDefault();
     switch (e.keyCode) {
