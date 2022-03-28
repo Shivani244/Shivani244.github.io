@@ -224,9 +224,5 @@ function addLetter(letter) {
             
     }
  }
-if (squares[0].innerHTML=== 'A' ){
-    let letterColor = 'green'
-    grid.style.backgroundColor = letterColor
-    shadeKeyBoard(squares[0], letterColor)
-}
+
 })
