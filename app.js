@@ -39,14 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const width = 5
   const height = 6
   let squares = []
-  
+  const words = ['fight', 'aloud', 'mount', 'irate', 'prize', 'lance', 'jokes', 'happy', 'alert', 'crash', 'chose', 'rites', 'dares']
+
   function createBoard() {
     for (let i=0; i < width*height; i++){
         let square = document.createElement('div')
         square.innerHTML = ''
         gridDisplay.appendChild(square)
         squares.push(square)
-   
     } 
     generate()
 }
@@ -54,6 +54,7 @@ createBoard()
 console.log(squares)
  //random grid
   
+
   function generate() {
       let randomNumber = Math.floor(Math.random() * 20 + 10)
        if (squares[randomNumber].innerHTML == '') {
@@ -69,38 +70,247 @@ console.log(squares)
   })
 
   function moveRight() {
-    for (let i = 0; i < width * height; i++) {
-        if(squares[i + 1].innerHTML == '' && squares[i].innerHTML != '-' && squares[i].innerHTML != '' && i != 4 && i!= 9 && i!= 14 && i!=19 && i!=24 && i!=29){
-            squares[i + 1].innerHTML = squares[i].innerHTML
+    for (let i=0; i < 30; i= i+5) {
+        let spotOne = squares[i].innerHTML
+        let spotTwo = squares[i+1].innerHTML
+        let spotThree = squares[i+2].innerHTML
+        let spotFour = squares[i+3].innerHTML
+        let spotFive = squares[i+4].innerHTML
+        let row = [spotOne,spotTwo,spotThree,spotFour,spotFive];
+        let filteredRow = row.filter(row => row != '')
+        if (filteredRow.length == 5){
+            squares[i].innerHTML = filteredRow[0]
+            squares[i +1].innerHTML = filteredRow[1]
+            squares[i +2].innerHTML = filteredRow[2]
+            squares[i +3].innerHTML = filteredRow[3]
+            squares[i +4].innerHTML = filteredRow[4]
+        }
+        if (filteredRow.length == 4){
             squares[i].innerHTML = ''
+            squares[i +1].innerHTML = filteredRow[0]
+            squares[i +2].innerHTML = filteredRow[1]
+            squares[i +3].innerHTML = filteredRow[2]
+            squares[i +4].innerHTML = filteredRow[3]
+        }
+        if (filteredRow.length == 3){
+            squares[i].innerHTML = ''
+            squares[i +1].innerHTML = ''
+            squares[i +2].innerHTML = filteredRow[0]
+            squares[i +3].innerHTML = filteredRow[1]
+            squares[i +4].innerHTML = filteredRow[2]
+        }
+        if (filteredRow.length == 2){
+            squares[i].innerHTML = ''
+            squares[i +1].innerHTML = ''
+            squares[i +2].innerHTML = ''
+            squares[i +3].innerHTML = filteredRow[0]
+            squares[i +4].innerHTML = filteredRow[1]
+        }
+        if (filteredRow.length == 1){
+            squares[i].innerHTML = ''
+            squares[i +1].innerHTML = ''
+            squares[i +2].innerHTML = ''
+            squares[i +3].innerHTML = ''
+            squares[i +4].innerHTML = filteredRow[0]
+        }
+        if (filteredRow.length == 0){
+            squares[i].innerHTML = ''
+            squares[i +1].innerHTML = ''
+            squares[i +2].innerHTML = ''
+            squares[i +3].innerHTML = ''
+            squares[i +4].innerHTML = ''
         }
     }
   }
 
   function moveLeft() {
-    for (let  i=29; i>0; i--) {
-        if (squares[i - 1].innerHTML == '' && squares[i].innerHTML != '-' && squares[i].innerHTML != '' && i != 0 && i!= 5 && i!= 10 && i!=15 && i!=20 && i!=25){
-            squares[i - 1].innerHTML = squares[i].innerHTML
+    for (let i=0; i < 30; i= i+5) {
+        let spotOne = squares[i].innerHTML
+        let spotTwo = squares[i+1].innerHTML
+        let spotThree = squares[i+2].innerHTML
+        let spotFour = squares[i+3].innerHTML
+        let spotFive = squares[i+4].innerHTML
+        let row = [spotOne,spotTwo,spotThree,spotFour,spotFive];
+        let filteredRow = row.filter(row => row != '')
+        if (filteredRow.length == 5){
+            squares[i].innerHTML = filteredRow[0]
+            squares[i +1].innerHTML = filteredRow[1]
+            squares[i +2].innerHTML = filteredRow[2]
+            squares[i +3].innerHTML = filteredRow[3]
+            squares[i +4].innerHTML = filteredRow[4]
+        }
+        if (filteredRow.length == 4){
+            squares[i].innerHTML = filteredRow[0]
+            squares[i +1].innerHTML = filteredRow[1]
+            squares[i +2].innerHTML = filteredRow[2]
+            squares[i +3].innerHTML = filteredRow[3]
+            squares[i +4].innerHTML = ''
+        }
+        if (filteredRow.length == 3){
+            squares[i].innerHTML = filteredRow[0]
+            squares[i +1].innerHTML = filteredRow[1]
+            squares[i +2].innerHTML = filteredRow[2]
+            squares[i +3].innerHTML = ''
+            squares[i +4].innerHTML = ''
+        }
+        if (filteredRow.length == 2){
+            squares[i].innerHTML = filteredRow[0]
+            squares[i +1].innerHTML = filteredRow[1]
+            squares[i +2].innerHTML = ''
+            squares[i +3].innerHTML = ''
+            squares[i +4].innerHTML = ''
+        }
+        if (filteredRow.length == 1){
+            squares[i].innerHTML = filteredRow[0]
+            squares[i +1].innerHTML = ''
+            squares[i +2].innerHTML = ''
+            squares[i +3].innerHTML = ''
+            squares[i +4].innerHTML = ''
+        }
+        if (filteredRow.length == 0){
             squares[i].innerHTML = ''
-        
+            squares[i +1].innerHTML = ''
+            squares[i +2].innerHTML = ''
+            squares[i +3].innerHTML = ''
+            squares[i +4].innerHTML = ''
         }
     }
   }
 
   function moveUp() {
-    for (let i=29; i>0; i--) {
-        if (squares[i - 5].innerHTML == '' && squares[i].innerHTML != '-' && squares[i].innerHTML != '' && i != 0 && i!= 1 && i!= 2 && i!=3 && i!=4){
-            squares[i - 5].innerHTML = squares[i].innerHTML
+    for (let i=0; i < 5; i++) {
+        let spotOne = squares[i].innerHTML
+        let spotTwo = squares[i+5].innerHTML
+        let spotThree = squares[i+10].innerHTML
+        let spotFour = squares[i+15].innerHTML
+        let spotFive = squares[i+20].innerHTML
+        let spotSix = squares [i+25].innerHTML
+        let row = [spotOne,spotTwo,spotThree,spotFour,spotFive,spotSix];
+        let filteredRow = row.filter(row => row != '')
+        if (filteredRow.length == 6){
+            squares[i].innerHTML = filteredRow[0]
+            squares[i +5].innerHTML = filteredRow[1]
+            squares[i +10].innerHTML = filteredRow[2]
+            squares[i +15].innerHTML = filteredRow[3]
+            squares[i +20].innerHTML = filteredRow[4]
+            squares[i+25].innerHTML = filteredRow[5]
+        }
+        if (filteredRow.length == 5){
+            squares[i].innerHTML = filteredRow[0]
+            squares[i +5].innerHTML = filteredRow[1]
+            squares[i +10].innerHTML = filteredRow[2]
+            squares[i +15].innerHTML = filteredRow[3]
+            squares[i +20].innerHTML = filteredRow[4]
+            squares[i+25].innerHTML = ''
+        }
+        if (filteredRow.length == 4){
+            squares[i].innerHTML = filteredRow[0]
+            squares[i +5].innerHTML = filteredRow[1]
+            squares[i +10].innerHTML = filteredRow[2]
+            squares[i +15].innerHTML = filteredRow[3]
+            squares[i +20].innerHTML = ''
+            squares[i+25].innerHTML = ''
+        }
+        if (filteredRow.length == 3){
+            squares[i].innerHTML = filteredRow[0]
+            squares[i +5].innerHTML = filteredRow[1]
+            squares[i +10].innerHTML = filteredRow[2]
+            squares[i +15].innerHTML = ''
+            squares[i +20].innerHTML = ''
+            squares[i+25].innerHTML = ''
+        }
+        if (filteredRow.length == 2){
+            squares[i].innerHTML = filteredRow[0]
+            squares[i +5].innerHTML = filteredRow[1]
+            squares[i +10].innerHTML = ''
+            squares[i +15].innerHTML = ''
+            squares[i +20].innerHTML = ''
+            squares[i+25].innerHTML = ''
+        }
+        if (filteredRow.length == 1){
+            squares[i].innerHTML = filteredRow[0]
+            squares[i +5].innerHTML = ''
+            squares[i +10].innerHTML = ''
+            squares[i +15].innerHTML = ''
+            squares[i +20].innerHTML = ''
+            squares[i+25].innerHTML = ''
+        }
+        if (filteredRow.length == 0){
             squares[i].innerHTML = ''
+            squares[i +5].innerHTML = ''
+            squares[i +10].innerHTML = ''
+            squares[i +15].innerHTML = ''
+            squares[i +20].innerHTML = ''
+            squares[i+25].innerHTML = ''
         }
     }
   }
 
   function moveDown() {
-    for (let i = 0; i < width * height; i++) {
-        if(squares[i+5].innerHTML == '' && squares[i].innerHTML != '-' && squares[i].innerHTML != '' && i != 25 && i!= 26 && i!= 27 && i!=28 && i!=29){
-            squares[i + 5].innerHTML = squares[i].innerHTML
+    for (let i=0; i < 5; i++) {
+        let spotOne = squares[i].innerHTML
+        let spotTwo = squares[i+5].innerHTML
+        let spotThree = squares[i+10].innerHTML
+        let spotFour = squares[i+15].innerHTML
+        let spotFive = squares[i+20].innerHTML
+        let spotSix = squares [i+25].innerHTML
+        let row = [spotOne,spotTwo,spotThree,spotFour,spotFive,spotSix];
+        let filteredRow = row.filter(row => row != '')
+        if (filteredRow.length == 6){
+            squares[i].innerHTML = filteredRow[0]
+            squares[i +5].innerHTML = filteredRow[1]
+            squares[i +10].innerHTML = filteredRow[2]
+            squares[i +15].innerHTML = filteredRow[3]
+            squares[i +20].innerHTML = filteredRow[4]
+            squares[i+25].innerHTML = filteredRow[5]
+        }
+        if (filteredRow.length == 5){
             squares[i].innerHTML = ''
+            squares[i +5].innerHTML = filteredRow[0]
+            squares[i+10].innerHTML = filteredRow[1]
+            squares[i+15].innerHTML = filteredRow[2]
+            squares[i +20].innerHTML = filteredRow[3]
+            squares[i +25].innerHTML = filteredRow[4]
+        }
+        if (filteredRow.length == 4){
+            squares[i].innerHTML = ''
+            squares[i +5].innerHTML = ''
+            squares[i+10].innerHTML = filteredRow[0]
+            squares[i+15].innerHTML = filteredRow[1]
+            squares[i +20].innerHTML = filteredRow[2]
+            squares[i +25].innerHTML = filteredRow[3]
+        }
+        if (filteredRow.length == 3){
+            squares[i].innerHTML = ''
+            squares[i +5].innerHTML = ''
+            squares[i+10].innerHTML = ''
+            squares[i+15].innerHTML = filteredRow[0]
+            squares[i +20].innerHTML = filteredRow[1]
+            squares[i +25].innerHTML = filteredRow[2]
+        }
+        if (filteredRow.length == 2){
+            squares[i].innerHTML = ''
+            squares[i +5].innerHTML = ''
+            squares[i +10].innerHTML = ''
+            squares[i+15].innerHTML = ''
+            squares[i+20].innerHTML = filteredRow[0]
+            squares[i +25].innerHTML = filteredRow[1]
+        }
+        if (filteredRow.length == 1){
+            squares[i].innerHTML = ''
+            squares[i +5].innerHTML = ''
+            squares[i +10].innerHTML = ''
+            squares[i +15].innerHTML = ''
+            squares[i +20].innerHTML = ''
+            squares[i+25].innerHTML = filteredRow[0]
+        }
+        if (filteredRow.length == 0){
+            squares[i].innerHTML = ''
+            squares[i +5].innerHTML = ''
+            squares[i +10].innerHTML = ''
+            squares[i +15].innerHTML = ''
+            squares[i +20].innerHTML = ''
+            squares[i+25].innerHTML = ''
         }
     }
   }
@@ -109,19 +319,18 @@ function addLetter(letter) {
     for (let i = 0; i < width * height; i++) {
        if (squares[i].innerHTML == '-'){
             squares[i].innerHTML = letter
-
         }
     }
 }
-    function deleteLetter(){
+
+function deleteLetter(){
     for (let i = 0; i < width * height; i++) {
         if (squares[i].innerHTML != ''){
              squares[i].innerHTML = '-'
- 
          }
  }
 }
-    
+
   document.onkeydown = function(e) {
     e.preventDefault();
     switch (e.keyCode) {
@@ -224,5 +433,5 @@ function addLetter(letter) {
             
     }
  }
-
+ 
 })
