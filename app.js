@@ -35,16 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const handleClick = () => {
         console.log('clicked')
     }
-     var grid = document.getElementsByClassName("grid"); 
-  
-/*function colors(){
-  var children = grid.children;
-  for(var i=0; i<children.length; i++) {
-    var child = children[i];
-    child.style.backgroundcolor = 'red';
-  }
-}
-*/
+
+  let divs = document.getElementsByTagName("div")
+  let grid = document.getElementsByClassName("grid"); 
     
   const width = 5
   const height = 6
@@ -332,9 +325,7 @@ console.log(squares)
     }
   }
 
-function addLetter(letter) {
-let divs = document.getElementsByTagName("div")
-var grid = document.getElementsByClassName("grid");  
+function addLetter(letter) { 
     for (let i = 0; i < width * height; i++) {
        if (squares[i].innerHTML == '-'){
             squares[i].innerHTML = letter
@@ -344,9 +335,7 @@ var grid = document.getElementsByClassName("grid");
     }
 }
 
-function addLetterWrong(letter) {
-    let divs = document.getElementsByTagName("div")
-    var grid = document.getElementsByClassName("grid");  
+function addLetterWrong(letter) { 
         for (let i = 0; i < width * height; i++) {
            if (squares[i].innerHTML == '-'){
                 squares[i].innerHTML = letter
@@ -356,8 +345,6 @@ function addLetterWrong(letter) {
         }
     }
 function addLetterRight(letter) {
-    let divs = document.getElementsByTagName("div")
-    var grid = document.getElementsByClassName("grid");  
         for (let i = 0; i < width * height; i++) {
            if (squares[i].innerHTML == '-'){
                 squares[i].innerHTML = letter
