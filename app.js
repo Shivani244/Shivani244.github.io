@@ -339,6 +339,13 @@ function deleteLetter(){
          }
  }
 }
+function checkLetter(letter) {
+    for (let i = 0; i < word.length; i++){
+        if (letter == word[i]){
+            addLetter(letter)
+        }
+    }
+}
 
   document.onkeydown = function(e) {
     e.preventDefault();
@@ -359,82 +366,82 @@ function deleteLetter(){
            moveDown();
             break;
         case 65: //letter a
-            addLetter('A');  
+            checkLetter('A');  
             break; 
         case 66: 
-            addLetter('B');  
+            checkLetter('B');  
             break;  
         case 67: 
-            addLetter('C');  
+            checkLetter('C');  
             break;  
          case 68: 
-            addLetter('D');  
+            checkLetter('D');  
             break;
          case 69: 
-            addLetter('E');  
+            checkLetter('E');  
             break;  
         case 70: 
-            addLetter('F');  
+            checkLetter('F');  
             break;  
         case 71: 
-            addLetter('G');  
+            checkLetter('G');  
             break;   
         case 72: 
-            addLetter('H');  
+            checkLetter('H');  
             break;   
         case 73: 
-            addLetter('I');  
+            checkLetter('I');  
             break;  
         case 74:
-            addLetter('J'); 
+            checkLetter('J'); 
             break; 
         case 75: 
-            addLetter('K');  
+            checkLetter('K');  
             break;  
         case 76: 
-            addLetter('L');  
+            checkLetter('L');  
             break;  
         case 77: 
-            addLetter('M');  
+            checkLetter('M');  
             break;  
         case 78: 
-            addLetter('N');  
+            checkLetter('N');  
             break;  
         case 79: 
-            addLetter('O');  
+            checkLetter('O');  
             break;  
          case 80: 
-            addLetter('P');  
+            checkLetter('P');  
             break;  
         case 81: 
-            addLetter('Q');  
+            checkLetter('Q');  
             break;  
         case 82: 
-            addLetter('R');  
+            checkLetter('R');  
             break; 
         case 83: 
-            addLetter('S');  
+            checkLetter('S');  
             break;  
         case 84: 
-            addLetter('T');  
+            checkLetter('T');  
             break;
         case 85: 
-            addLetter('U');  
+            checkLetter('U');  
             break;   
         case 86: 
-            addLetter('V');  
+            checkLetter('V');  
             break; 
         case 87: 
-            addLetter('W');  
+            checkLetter('W');  
             break; 
         case 88: 
-            addLetter('X');  
+            checkLetter('X');  
             break; 
         case 89: 
-            addLetter('Y');  
+            checkLetter('Y');  
             break; 
         case 90: 
-            addLetter('Z');  
+            checkLetter('Z');  
             break; 
       case 8:
             deleteLetter(); 
