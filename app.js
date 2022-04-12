@@ -49,7 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const height = 6
   let squares = []
   const words = ['fight', 'aloud', 'mount', 'irate', 'prize', 'lance', 'jokes', 'happy', 'alert', 'crash', 'chose', 'rites', 'dares']
-
+  let word = []
+  
   function createBoard() {
     for (let i=0; i < width*height; i++){
         let square = document.createElement('div')
