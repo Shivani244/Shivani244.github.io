@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const width = 5
   const height = 6
   let squares = []
-  const words = ['fight', 'aloud', 'mount', 'irate', 'prize', 'lance', 'jokes', 'happy', 'alert', 'crash', 'chose', 'rites', 'dares']
+  const wordList = ['fight', 'aloud', 'mount', 'irate', 'prize', 'lance', 'jokes', 'happy', 'alert', 'crash', 'chose', 'rites', 'dares']
   let word = []
   
   function createBoard() {
