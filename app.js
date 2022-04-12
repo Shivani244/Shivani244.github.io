@@ -36,15 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('clicked')
     }
      
-    var grid = document.getElementsByClassName("grid"); 
-  function colors(){
-  var children = grid.children;
-  for(var i=0; i<children.length; i++) {
-    var child = children[i];
-    child.style.backgroundcolor = 'red';
-  }
-}
-    
   const width = 5
   const height = 6
   let squares = []
