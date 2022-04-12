@@ -82,6 +82,15 @@ console.log(squares)
       buttonElement.addEventListener('click', handleClick)
   })
 
+   function colors() {
+  let grid = document.getElementsByClassName("grid"); 
+  let divs = document.getElementsByTagName("div")
+  for(let i=2; i< (divs.length - 1); i++) {
+    let child = divs[i];
+    child.style.backgroundColor = "green";
+
+  }
+}
   function moveRight() {
     for (let i=0; i < 30; i= i+5) {
         let spotOne = squares[i].innerHTML
