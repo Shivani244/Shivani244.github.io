@@ -85,6 +85,8 @@ console.log(squares)
 
  
   function moveRight() {
+    let divs = document.getElementsByTagName("div")
+    var grid = document.getElementsByClassName("grid");
     for (let i=0; i < 30; i= i+5) {
         let spotOne = squares[i].innerHTML
         let spotTwo = squares[i+1].innerHTML
@@ -337,7 +339,7 @@ var grid = document.getElementsByClassName("grid");
        if (squares[i].innerHTML == '-'){
             squares[i].innerHTML = letter
             let child = divs[i + 2];
-            child.style.backgroundColor = "yellow";
+            child.style.backgroundColor = "#fee08b";
         }
     }
 }
@@ -353,7 +355,17 @@ function addLetterWrong(letter) {
             }
         }
     }
-
+function addLetterRight(letter) {
+    let divs = document.getElementsByTagName("div")
+    var grid = document.getElementsByClassName("grid");  
+        for (let i = 0; i < width * height; i++) {
+           if (squares[i].innerHTML == '-'){
+                squares[i].innerHTML = letter
+                let child = divs[i + 2];
+                child.style.backgroundColor = "green";
+            }
+        }
+}
 function deleteLetter(){
     for (let i = 0; i < width * height; i++) {
         if (squares[i].innerHTML != ''){
@@ -363,13 +375,23 @@ function deleteLetter(){
 }
 function checkLetter(letter) {
     for (let i = 0; i < word.length; i++){
+        if (letter == word[i] && (squares[i].innerHTML == '-' || squares[i+5].innerHTML == '-' || squares[i+10].innerHTML == '-' ||  squares[i+15].innerHTML == '-' ||  squares[i + 20].innerHTML == '-' ||  squares[i+25].innerHTML == '-')){
+            addLetterRight(letter)
+        }
+    }
+        for (let i = 0; i < word.length; i++){
         if (letter == word[i]){
            addLetter(letter)
         }
-        else { 
+    }
+        for (let i = 0; i < word.length; i++){
+        if (letter != word[i]){
             addLetterWrong(letter)
         }
-    }
+        }
+        
+
+    
 }
 
   document.onkeydown = function(e) {
