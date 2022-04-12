@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('clicked')
     }
      
-    var grid = document.getElementByClassName("grid"); 
+    var grid = document.getElementsByClassName("grid"); 
   function colors(){
   var children = grid.children;
   for(var i=0; i<children.length; i++) {
