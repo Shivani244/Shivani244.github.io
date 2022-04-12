@@ -35,7 +35,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const handleClick = () => {
         console.log('clicked')
     }
-     
+     var grid = document.getElementsByClassName("grid"); 
+  
+/*function colors(){
+  var children = grid.children;
+  for(var i=0; i<children.length; i++) {
+    var child = children[i];
+    child.style.backgroundcolor = 'red';
+  }
+}
+*/
+    
   const width = 5
   const height = 6
   let squares = []
@@ -73,15 +83,7 @@ console.log(squares)
       buttonElement.addEventListener('click', handleClick)
   })
 
-   function colors() {
-  let grid = document.getElementsByClassName("grid"); 
-  let divs = document.getElementsByTagName("div")
-  for(let i=2; i< (divs.length - 1); i++) {
-    let child = divs[i];
-    child.style.backgroundColor = "green";
-
-  }
-}
+ 
   function moveRight() {
     for (let i=0; i < 30; i= i+5) {
         let spotOne = squares[i].innerHTML
@@ -329,12 +331,28 @@ console.log(squares)
   }
 
 function addLetter(letter) {
+let divs = document.getElementsByTagName("div")
+var grid = document.getElementsByClassName("grid");  
     for (let i = 0; i < width * height; i++) {
        if (squares[i].innerHTML == '-'){
             squares[i].innerHTML = letter
+            let child = divs[i + 2];
+            child.style.backgroundColor = "yellow";
         }
     }
 }
+
+function addLetterWrong(letter) {
+    let divs = document.getElementsByTagName("div")
+    var grid = document.getElementsByClassName("grid");  
+        for (let i = 0; i < width * height; i++) {
+           if (squares[i].innerHTML == '-'){
+                squares[i].innerHTML = letter
+                let child = divs[i + 2];
+                child.style.backgroundColor = "grey";
+            }
+        }
+    }
 
 function deleteLetter(){
     for (let i = 0; i < width * height; i++) {
@@ -346,7 +364,10 @@ function deleteLetter(){
 function checkLetter(letter) {
     for (let i = 0; i < word.length; i++){
         if (letter == word[i]){
-            addLetter(letter)
+           addLetter(letter)
+        }
+        else { 
+            addLetterWrong(letter)
         }
     }
 }
