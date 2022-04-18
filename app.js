@@ -57,6 +57,11 @@ const wordList = ['fight',
    'pride',
    'color',
    'split', 
+   'bunny',
+   'sting',
+   'ladle',
+   'sleep',
+   'coral',
    'slide',
    'stars',
    'water',
@@ -114,6 +119,7 @@ function moveRight() {
         let spotFour = squares[i+3].innerHTML
         let spotFive = squares[i+4].innerHTML
         let row = [spotOne,spotTwo,spotThree,spotFour,spotFive];
+        let child = divs[i + 2];
         let filteredRow = row.filter(row => row != '')
         switch (filteredRow.length) {
             case 5:
@@ -158,9 +164,12 @@ function moveRight() {
                 squares[i +3].innerHTML = '';
                 squares[i +4].innerHTML = '';
                 break;
-        }
+            
+                 } 
+                
+             }
     }
-}
+    
 
 function moveLeft() {
     for (let i=0; i < 30; i= i+5) {
@@ -170,7 +179,9 @@ function moveLeft() {
         let spotFour = squares[i+3].innerHTML
         let spotFive = squares[i+4].innerHTML
         let row = [spotOne,spotTwo,spotThree,spotFour,spotFive];
-        let filteredRow = row.filter(row => row != '')
+        let child = divs[i + 2];
+        let filteredRow = row.filter(row => row != '') 
+        if(child.style.backgroundColor != "grey"){
         switch (filteredRow.length){
             case 5:
                 squares[i].innerHTML = filteredRow[0];
@@ -215,8 +226,10 @@ function moveLeft() {
                 squares[i +4].innerHTML = '';
                 break;
         }
+        }
+        }
     }
-}
+
 
 function moveUp() {
     for (let i=0; i < 5; i++) {
@@ -226,8 +239,9 @@ function moveUp() {
         let spotFour = squares[i+15].innerHTML
         let spotFive = squares[i+20].innerHTML
         let spotSix = squares [i+25].innerHTML
+        let child = divs[i];
         let row = [spotOne,spotTwo,spotThree,spotFour,spotFive,spotSix];
-        let filteredRow = row.filter(row => row != '')
+        let filteredRow = row.filter(row => row != '')  
         switch (filteredRow.length){
             case 6:
                 squares[i].innerHTML = filteredRow[0];
@@ -286,8 +300,9 @@ function moveUp() {
                 squares[i+25].innerHTML = '';
                 break;
         }
-    }
-}
+        }
+        }
+
 
 function moveDown() {
     for (let i=0; i < 5; i++) {
@@ -356,9 +371,11 @@ function moveDown() {
                 squares[i +20].innerHTML = '';
                 squares[i+25].innerHTML = '';
                 break;
+            }
         }
     }
-}
+    
+
 
 function deleteLetter(){
     for (let i = 0; i < width * height; i++) {
@@ -393,7 +410,7 @@ function addLetter(letter) {
                if (squares[i].innerHTML == '-'){
                     squares[i].innerHTML = letter
                     let child = divs[i + 2];
-                    child.style.backgroundColor = "lightgreen";
+                    child.style.backgroundColor = "green";
                 }
             }
     }
@@ -425,11 +442,11 @@ function addLetter(letter) {
     }
     
     function checkBoard(){
-        for (let i = 0; i < width*height; i++){
-            for (let j = 0; j < word.length; j++){
-                if (squares[i].innerHTML == word[j] && (i == j || i == j+5 || i == j+10 || i== j+15 || i == j+20 || i == j + 25)){
-                    let child = divs[i + 2];
-                    child.style.backgroundColor = "lightgreen";
+    for (let i = 0; i < width*height; i++){      
+        for (let j = 0; j < word.length; j++){
+                let child = divs[i + 2];
+                if (squares[i].innerHTML != word[j] ){
+                    child.style.backgroundColor = "grey";
                 }
             }
         }
@@ -442,22 +459,34 @@ function addLetter(letter) {
                 }
             }
         }
-
         for (let i = 0; i < width*height; i++){
             for (let j = 0; j < word.length; j++){
-                let child = divs[i + 2];
-                if (child.style.backgroundColor != "#fee08b" && child.style.backgroundColor != "lightgreen"){
-                    child.style.backgroundColor = "grey";
+                if (squares[i].innerHTML == word[j] && (i == j || i == j+5 || i == j+10 || i== j+15 || i == j+20 || i == j + 25)){
+                    let child = divs[i + 2];
+                    child.style.backgroundColor = "green";
                 }
             }
         }
+
         for (let i = 0; i < width*height; i++){
             if (squares[i].innerHTML == ''){
                 let child = divs[i + 2];
-                child.style.backgroundColor = "#b5b5b5";
+                child.style.backgroundColor = "rgb(248, 196, 245)";
             }
         }
     }
+
+   function openPopup(){
+        let popup = document.getElementById("popup");
+        popup.classList.add("open-popup");
+    }
+    function CorrectWord(){
+        if(divs[2].style.backgroundColor == "green" && divs[3].style.backgroundColor == "green" && divs[4].style.backgroundColor == "green" && divs[5].style.backgroundColor == "green" && divs[6].style.backgroundColor == "green" ){
+             openPopup(); 
+        }
+
+     }
+ 
     
       document.onkeydown = function(e) {
         e.preventDefault();
@@ -468,18 +497,22 @@ function addLetter(letter) {
             case 37: //left arrow
                 moveLeft();
                 checkBoard();
+               // greyBoxOnly();
                 break;
             case 38: //up arrow
                 moveUp();
                 checkBoard();
+              //  greyBoxOnly(); 
                 break;
             case 39: //right arrow
                 moveRight();
-                checkBoard();
+                checkBoard();           
+              //  greyBoxOnly();
                 break;
            case 40: //down arrow
                 moveDown();
                 checkBoard();
+              //  greyBoxOnly();
                 break;
             case 65: //letter a
                 checkLetter('A');  
@@ -564,5 +597,7 @@ function addLetter(letter) {
                 break;  
                 
         }
-     }
+        CorrectWord(); 
+    }
+
 })
