@@ -3,44 +3,44 @@ html, body{
     padding: 0;
   
     background: rgb(248, 196, 245);
-    color: black;
+    color: rgb(0, 0, 0);
     font-family: 'Trebuchet MS', 'Lucinda Sans Unicode','Lucinda Grande', 'Lucinda Sans', Arial, sans-serif;
     font-size: 18px;
 }
 h1.title {
     font-size: 50px;
     font-weight: bold;
-    margin: 7px 385px 50px;
+    margin: 7px 415px 50px;
     text-align: center;
     float: left;
-    border-bottom: solid 3px #ededf5;
+    border-bottom: solid 3px #000000;
   }
   .grid {
       display: flex; 
       flex-wrap: wrap;
-      width: 321px; 
+      width: 375px; 
       height: 401px; 
       background-color: rgb(248, 196, 245);
       border-radius: 5px;
       margin: 100px 350px 100px;
   }
 
-.grid div{
-    width: 64px; 
+ .grid div{
+    width: 70px; 
     height: 64px;
-    border: 2px solid#ededf5;
-    box-sizing: border-box;
-    background-color: purple;
+    border: 2px solid#000000;
+    background-color: rgb(248, 196, 245);
     font-size: 50px;
     text-align: center;
-    border-radius: 5px;
+    border-radius:2px;
 }
+
 
 .key-container  {
     width: 510px;
     display: flex; 
     flex-wrap: wrap; 
-    margin:  1px 250px 10px; 
+    margin:  1px 275px 10px; 
     text-align: center;
     text-justify: center;
 
@@ -64,3 +64,62 @@ h1.title {
 .key-container button:nth-child(28){
     width: 68px;
 }
+.popup{
+   width: 400px; 
+   background: #fff; 
+   border-radius: 6px; 
+   position: absolute; 
+   top: 50%; 
+   left: 50%; 
+   transform: translate(-50%, -50%) scale(0.1); 
+   text-align: center; 
+    padding: 0 30px 30px; 
+    color: #333; 
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s; 
+}
+
+.open-popup{
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+    top: 50%
+}
+.popup button{
+    width: 100%;
+    margin-top: 50px; 
+    padding: 10px 0; 
+    background: pink;
+    color: #fff;
+    border: 0; 
+    outline: none; 
+    font-size: 18px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+.popup1{
+    width: 400px; 
+    background: #fff; 
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%) scale(0.1); 
+    text-align: center; 
+     padding: 0 20px; 
+     color: #333;
+     visibility: hidden;
+    transition: transform 0.4s, top 0.4s; 
+}
+.close{
+    position: absolute; 
+    top: 0; 
+    right: 0; 
+    padding:10px 20px; 
+    background: pink;
+    color: #fff;
+    cursor: pointer; 
+}
+.open-popup1{
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+    top: 50%
