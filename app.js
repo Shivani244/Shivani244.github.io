@@ -260,11 +260,9 @@ function moveRight() {
                 squares[i +3].innerHTML = '';
                 squares[i +4].innerHTML = '';
                 break;
-            
-                 } 
-                
-             }
+        }        
     }
+}
     
 
 function moveLeft() {
