@@ -1358,7 +1358,12 @@ function addLetter(letter) {
         e.preventDefault();
         switch (e.keyCode) {
             case 13: //enter
-                generate();
+           for(let i = 0; i < width*height; i++){
+             if(squares[i].innerHTML == "-"){
+                 return; 
+             }
+           }
+           generate(); 
                 break;
             case 37: //left arrow
                 moveLeft();
