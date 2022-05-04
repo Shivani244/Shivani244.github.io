@@ -1,3 +1,4 @@
+import {wordarray} from './words.js';
 document.addEventListener('DOMContentLoaded', () => {
     const gridDisplay = document.querySelector('.grid')
     const resultDisplay = document.getElementById(' result')
