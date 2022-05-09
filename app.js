@@ -77,15 +77,11 @@ keys.forEach(key => {
       buttonElement.addEventListener('click', handleClick)
 })
 
-function colors(color, letter) {
-    for(let i=0; i< width*height; i++) {
-        if (squares[i].innerHTML == letter){
-            let child = divs[i+2];
-            child.style.backgroundColor = color;
-        }
-    }
-}  
-
+function moveRight(){
+    rightNoGreenNoGray()
+    rightWithGray()
+    rightWithGreen()
+}
 
 function rightNoGreenNoGray() {
     for (let i=0; i < 30; i= i+5) {
@@ -323,6 +319,46 @@ function rightWithGray(){
                     break;
             }   
         }
+        if (divs[i+2].style.backgroundColor == "grey" && divs[i+3].style.backgroundColor != "grey" && divs[i+4].style.backgroundColor != "grey" && divs[i+5].style.backgroundColor == "grey"){
+            let spotTwo = squares[i+1].innerHTML
+            let spotThree = squares[i+2].innerHTML
+            let row = [spotTwo,spotThree];
+            let filteredRow = row.filter(row => row != '')
+            switch (filteredRow.length) {
+                case 2:
+                    squares[i + 1].innerHTML = filteredRow[0];
+                    squares[i + 2].innerHTML = filteredRow[1];
+                    break;
+                case 1:
+                    squares[i + 2].innerHTML = '';
+                    squares[i + 3].innerHTML = filteredRow[0];
+                    break;
+                case 0:
+                    squares[i + 1].innerHTML = '';
+                    squares[i + 2].innerHTML = '';
+                    break;
+            }   
+        }
+        if (divs[i+2].style.backgroundColor != "grey" && divs[i+3].style.backgroundColor != "grey" && divs[i+4].style.backgroundColor == "grey" && (divs[i+5].style.backgroundColor == "grey" || divs[i+6].style.backgroundColor == "grey")){
+            let spotOne = squares[i].innerHTML
+            let spotTwo = squares[i+1].innerHTML
+            let row = [spotOne,spotTwo];
+            let filteredRow = row.filter(row => row != '')
+            switch (filteredRow.length) {
+                case 2:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i + 1].innerHTML = filteredRow[1];
+                    break;
+                case 1:
+                    squares[i].innerHTML = '';
+                    squares[i + 1].innerHTML = filteredRow[0];
+                    break;
+                case 0:
+                    squares[i].innerHTML = '';
+                    squares[i + 1].innerHTML = '';
+                    break;
+            }
+        }
     }
 }
 
@@ -517,6 +553,46 @@ function rightWithGreen(){
                     break;
             }   
         }
+        if (divs[i+2].style.backgroundColor == "green" && divs[i+3].style.backgroundColor != "green" && divs[i+4].style.backgroundColor != "green" && divs[i+5].style.backgroundColor == "green"){
+            let spotTwo = squares[i+1].innerHTML
+            let spotThree = squares[i+2].innerHTML
+            let row = [spotTwo,spotThree];
+            let filteredRow = row.filter(row => row != '')
+            switch (filteredRow.length) {
+                case 2:
+                    squares[i + 1].innerHTML = filteredRow[0];
+                    squares[i + 2].innerHTML = filteredRow[1];
+                    break;
+                case 1:
+                    squares[i + 2].innerHTML = '';
+                    squares[i + 3].innerHTML = filteredRow[0];
+                    break;
+                case 0:
+                    squares[i + 1].innerHTML = '';
+                    squares[i + 2].innerHTML = '';
+                    break;
+            }  
+        } 
+        if (divs[i+2].style.backgroundColor != "green" && divs[i+3].style.backgroundColor != "green" && divs[i+4].style.backgroundColor == "green" && (divs[i+5].style.backgroundColor == "green" || divs[i+6].style.backgroundColor == "green")){
+            let spotOne = squares[i].innerHTML
+            let spotTwo = squares[i+1].innerHTML
+            let row = [spotOne,spotTwo];
+            let filteredRow = row.filter(row => row != '')
+            switch (filteredRow.length) {
+                case 2:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i + 1].innerHTML = filteredRow[1];
+                    break;
+                case 1:
+                    squares[i].innerHTML = '';
+                    squares[i + 1].innerHTML = filteredRow[0];
+                    break;
+                case 0:
+                    squares[i].innerHTML = '';
+                    squares[i + 1].innerHTML = '';
+                    break;
+            }
+        }
     }
 }
 
@@ -655,26 +731,6 @@ function leftWithGray(){
                     break;
             }
         }
-        if (divs[i+2].style.backgroundColor != "grey" && divs[i+3].style.backgroundColor != "grey" && divs[i+4].style.backgroundColor == "grey" && divs[i+5].style.backgroundColor == "grey"){
-            let spotOne = squares[i].innerHTML
-            let spotTwo = squares[i+1].innerHTML
-            let row = [spotOne,spotTwo];
-            let filteredRow = row.filter(row => row != '')
-            switch (filteredRow.length){
-                case 2:
-                    squares[i].innerHTML = filteredRow[0];
-                    squares[i +1].innerHTML = filteredRow[1];
-                    break;
-                case 1:
-                    squares[i].innerHTML = filteredRow[0];
-                    squares[i +1].innerHTML = '';
-                    break;
-                case 0:
-                    squares[i].innerHTML = '';
-                    squares[i +1].innerHTML = '';
-                    break;
-            }
-        }
         if (divs[i+2].style.backgroundColor != "grey" && divs[i+3].style.backgroundColor != "grey" && divs[i+4].style.backgroundColor == "grey" && divs[i+5].style.backgroundColor != "grey"  && divs[i+6].style.backgroundColor != "grey" ){
             let spotOne = squares[i].innerHTML
             let spotTwo = squares[i+1].innerHTML
@@ -694,22 +750,22 @@ function leftWithGray(){
                     squares[i +1].innerHTML = '';
                     break;
             }
-            let spotFour = squares[i + 4].innerHTML
-            let spotFive = squares[i + 5].innerHTML
+            let spotFour = squares[i + 3].innerHTML
+            let spotFive = squares[i + 4].innerHTML
             let row2 = [spotFour,spotFive];
-            let filteredRow2 = row.filter(row => row != '')
+            let filteredRow2 = row2.filter(row => row != '')
             switch (filteredRow2.length){
                 case 2:
-                    squares[i + 4].innerHTML = filteredRow2[0];
-                    squares[i + 5].innerHTML = filteredRow2[1];
+                    squares[i + 3].innerHTML = filteredRow2[0];
+                    squares[i + 4].innerHTML = filteredRow2[1];
                     break;
                 case 1:
-                    squares[i + 4].innerHTML = filteredRow2[0];
-                    squares[i + 5].innerHTML = '';
+                    squares[i + 3].innerHTML = filteredRow2[0];
+                    squares[i + 4].innerHTML = '';
                     break;
                 case 0:
+                    squares[i + 3].innerHTML = '';
                     squares[i + 4].innerHTML = '';
-                    squares[i + 5].innerHTML = '';
                     break;
             }
         }
@@ -757,7 +813,7 @@ function leftWithGray(){
                     break;
             }
         }
-        if (divs[i+2].style.backgroundColor == "grey" && divs[i+3].style.backgroundColor == "grey" && divs[i+4].style.backgroundColor != "grey" && divs[i+5].style.backgroundColor != "grey" && divs[i+6].style.backgroundColor == "grey"){
+        if ( divs[i+3].style.backgroundColor == "grey" && divs[i+4].style.backgroundColor != "grey" && divs[i+5].style.backgroundColor != "grey" && divs[i+6].style.backgroundColor == "grey"){
             let spotOne = squares[i + 2].innerHTML
             let spotTwo = squares[i + 3].innerHTML
             let row = [spotOne,spotTwo];
@@ -774,6 +830,46 @@ function leftWithGray(){
                 case 0:
                     squares[i + 2].innerHTML = '';
                     squares[i + 3].innerHTML = '';
+                    break;
+            }
+        }
+        if (divs[i+2].style.backgroundColor != "grey" && divs[i+3].style.backgroundColor != "grey" && divs[i+4].style.backgroundColor == "grey" && (divs[i+5].style.backgroundColor == "grey" || divs[i+6].style.backgroundColor == "grey")){
+            let spotOne = squares[i].innerHTML
+            let spotTwo = squares[i+1].innerHTML
+            let row = [spotOne,spotTwo];
+            let filteredRow = row.filter(row => row != '')
+            switch (filteredRow.length){
+                case 2:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +1].innerHTML = filteredRow[1];
+                    break;
+                case 1:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +1].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i].innerHTML = '';
+                    squares[i +1].innerHTML = '';
+                    break;
+            }
+        }
+        if ((divs[i+2].style.backgroundColor != "grey" || divs[i+3].style.backgroundColor != "grey") && divs[i+4].style.backgroundColor == "grey" && divs[i+5].style.backgroundColor != "grey"  && divs[i+6].style.backgroundColor != "grey" ){
+            let spotFour = squares[i + 3].innerHTML
+            let spotFive = squares[i + 4].innerHTML
+            let row2 = [spotFour,spotFive];
+            let filteredRow2 = row2.filter(row => row != '')
+            switch (filteredRow2.length){
+                case 2:
+                    squares[i + 3].innerHTML = filteredRow2[0];
+                    squares[i + 4].innerHTML = filteredRow2[1];
+                    break;
+                case 1:
+                    squares[i + 3].innerHTML = filteredRow2[0];
+                    squares[i + 4].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i + 3].innerHTML = '';
+                    squares[i + 4].innerHTML = '';
                     break;
             }
         }
@@ -851,26 +947,6 @@ function leftWithGreen(){
                     break;
             }
         }
-        if (divs[i+2].style.backgroundColor != "green" && divs[i+3].style.backgroundColor != "green" && divs[i+4].style.backgroundColor == "green" && divs[i+5].style.backgroundColor == "green"){
-            let spotOne = squares[i].innerHTML
-            let spotTwo = squares[i+1].innerHTML
-            let row = [spotOne,spotTwo];
-            let filteredRow = row.filter(row => row != '')
-            switch (filteredRow.length){
-                case 2:
-                    squares[i].innerHTML = filteredRow[0];
-                    squares[i +1].innerHTML = filteredRow[1];
-                    break;
-                case 1:
-                    squares[i].innerHTML = filteredRow[0];
-                    squares[i +1].innerHTML = '';
-                    break;
-                case 0:
-                    squares[i].innerHTML = '';
-                    squares[i +1].innerHTML = '';
-                    break;
-            }
-        }
         if (divs[i+2].style.backgroundColor != "green" && divs[i+3].style.backgroundColor != "green" && divs[i+4].style.backgroundColor == "green" && divs[i+5].style.backgroundColor != "green"  && divs[i+6].style.backgroundColor != "green" ){
             let spotOne = squares[i].innerHTML
             let spotTwo = squares[i+1].innerHTML
@@ -893,7 +969,7 @@ function leftWithGreen(){
             let spotFour = squares[i + 4].innerHTML
             let spotFive = squares[i + 5].innerHTML
             let row2 = [spotFour,spotFive];
-            let filteredRow2 = row.filter(row => row != '')
+            let filteredRow2 = row2.filter(row => row != '')
             switch (filteredRow2.length){
                 case 2:
                     squares[i + 4].innerHTML = filteredRow2[0];
@@ -953,7 +1029,7 @@ function leftWithGreen(){
                     break;
             }
         }
-        if (divs[i+2].style.backgroundColor == "green" && divs[i+3].style.backgroundColor == "green" && divs[i+4].style.backgroundColor != "green" && divs[i+5].style.backgroundColor != "green" && divs[i+6].style.backgroundColor == "green"){
+        if (divs[i+3].style.backgroundColor == "green" && divs[i+4].style.backgroundColor != "green" && divs[i+5].style.backgroundColor != "green" && divs[i+6].style.backgroundColor == "green"){
             let spotOne = squares[i + 2].innerHTML
             let spotTwo = squares[i + 3].innerHTML
             let row = [spotOne,spotTwo];
@@ -973,152 +1049,444 @@ function leftWithGreen(){
                     break;
             }
         }
-    }
-}
-
-function moveUp() {
-    for (let i=0; i < 5; i++) {
-        let spotOne = squares[i].innerHTML
-        let spotTwo = squares[i+5].innerHTML
-        let spotThree = squares[i+10].innerHTML
-        let spotFour = squares[i+15].innerHTML
-        let spotFive = squares[i+20].innerHTML
-        let spotSix = squares [i+25].innerHTML
-        let child = divs[i];
-        let row = [spotOne,spotTwo,spotThree,spotFour,spotFive,spotSix];
-        let filteredRow = row.filter(row => row != '')  
-        switch (filteredRow.length){
-            case 6:
-                squares[i].innerHTML = filteredRow[0];
-                squares[i +5].innerHTML = filteredRow[1];
-                squares[i +10].innerHTML = filteredRow[2];
-                squares[i +15].innerHTML = filteredRow[3];
-                squares[i +20].innerHTML = filteredRow[4];
-                squares[i+25].innerHTML = filteredRow[5];
-                break;
-            case 5:
-                squares[i].innerHTML = filteredRow[0];
-                squares[i +5].innerHTML = filteredRow[1];
-                squares[i +10].innerHTML = filteredRow[2];
-                squares[i +15].innerHTML = filteredRow[3];
-                squares[i +20].innerHTML = filteredRow[4];
-                squares[i+25].innerHTML = '';
-                break
-            case 4:
-                squares[i].innerHTML = filteredRow[0];
-                squares[i +5].innerHTML = filteredRow[1];
-                squares[i +10].innerHTML = filteredRow[2];
-                squares[i +15].innerHTML = filteredRow[3];
-                squares[i +20].innerHTML = '';
-                squares[i+25].innerHTML = '';
-                break;
-            case 3:
-                squares[i].innerHTML = filteredRow[0];
-                squares[i +5].innerHTML = filteredRow[1];
-                squares[i +10].innerHTML = filteredRow[2];
-                squares[i +15].innerHTML = '';
-                squares[i +20].innerHTML = '';
-                squares[i+25].innerHTML = '';
-                break;
-            case 2:
-                squares[i].innerHTML = filteredRow[0];
-                squares[i +5].innerHTML = filteredRow[1];
-                squares[i +10].innerHTML = '';
-                squares[i +15].innerHTML = '';
-                squares[i +20].innerHTML = '';
-                squares[i+25].innerHTML = '';
-                break;
-            case 1:
-                squares[i].innerHTML = filteredRow[0];
-                squares[i +5].innerHTML = '';
-                squares[i +10].innerHTML = '';
-                squares[i +15].innerHTML = '';
-                squares[i +20].innerHTML = '';
-                squares[i+25].innerHTML = '';
-                break;
-            case 0:
-                squares[i].innerHTML = '';
-                squares[i +5].innerHTML = '';
-                squares[i +10].innerHTML = '';
-                squares[i +15].innerHTML = '';
-                squares[i +20].innerHTML = '';
-                squares[i+25].innerHTML = '';
-                break;
+        if (divs[i+2].style.backgroundColor != "green" && divs[i+3].style.backgroundColor != "green" && divs[i+4].style.backgroundColor == "green" && (divs[i+5].style.backgroundColor == "green" || divs[i+6].style.backgroundColor == "green")){
+            let spotOne = squares[i].innerHTML
+            let spotTwo = squares[i+1].innerHTML
+            let row = [spotOne,spotTwo];
+            let filteredRow = row.filter(row => row != '')
+            switch (filteredRow.length){
+                case 2:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +1].innerHTML = filteredRow[1];
+                    break;
+                case 1:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +1].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i].innerHTML = '';
+                    squares[i +1].innerHTML = '';
+                    break;
+            }
         }
-        }
-        }
-
-
-function moveDown() {
-    for (let i=0; i < 5; i++) {
-        let spotOne = squares[i].innerHTML
-        let spotTwo = squares[i+5].innerHTML
-        let spotThree = squares[i+10].innerHTML
-        let spotFour = squares[i+15].innerHTML
-        let spotFive = squares[i+20].innerHTML
-        let spotSix = squares [i+25].innerHTML
-        let row = [spotOne,spotTwo,spotThree,spotFour,spotFive,spotSix];
-        let filteredRow = row.filter(row => row != '')
-        switch (filteredRow.length){
-            case 6:
-                squares[i].innerHTML = filteredRow[0];
-                squares[i +5].innerHTML = filteredRow[1];
-                squares[i +10].innerHTML = filteredRow[2];
-                squares[i +15].innerHTML = filteredRow[3];
-                squares[i +20].innerHTML = filteredRow[4];
-                squares[i+25].innerHTML = filteredRow[5];
-                break;
-            case 5:
-                squares[i].innerHTML = '';
-                squares[i +5].innerHTML = filteredRow[0];
-                squares[i+10].innerHTML = filteredRow[1];
-                squares[i+15].innerHTML = filteredRow[2];
-                squares[i +20].innerHTML = filteredRow[3];
-                squares[i +25].innerHTML = filteredRow[4];
-                break;
-            case 4:
-                squares[i].innerHTML = '';
-                squares[i +5].innerHTML = '';
-                squares[i+10].innerHTML = filteredRow[0];
-                squares[i+15].innerHTML = filteredRow[1];
-                squares[i +20].innerHTML = filteredRow[2];
-                squares[i +25].innerHTML = filteredRow[3];
-                break;
-            case 3:
-                squares[i].innerHTML = '';
-                squares[i +5].innerHTML = '';
-                squares[i+10].innerHTML = '';
-                squares[i+15].innerHTML = filteredRow[0];
-                squares[i +20].innerHTML = filteredRow[1];
-                squares[i +25].innerHTML = filteredRow[2];
-                break;
-            case 2:
-                squares[i].innerHTML = '';
-                squares[i +5].innerHTML = '';
-                squares[i +10].innerHTML = '';
-                squares[i+15].innerHTML = '';
-                squares[i+20].innerHTML = filteredRow[0];
-                squares[i +25].innerHTML = filteredRow[1];
-                break;
-            case 1:
-                squares[i].innerHTML = '';
-                squares[i +5].innerHTML = '';
-                squares[i +10].innerHTML = '';
-                squares[i +15].innerHTML = '';
-                squares[i +20].innerHTML = '';
-                squares[i+25].innerHTML = filteredRow[0];
-                break;
-            case 0:
-                squares[i].innerHTML = '';
-                squares[i +5].innerHTML = '';
-                squares[i +10].innerHTML = '';
-                squares[i +15].innerHTML = '';
-                squares[i +20].innerHTML = '';
-                squares[i+25].innerHTML = '';
-                break;
+        if ((divs[i+2].style.backgroundColor != "green" || divs[i+3].style.backgroundColor != "green") && divs[i+4].style.backgroundColor == "green" && divs[i+5].style.backgroundColor != "green"  && divs[i+6].style.backgroundColor != "green" ){
+            let spotFour = squares[i + 3].innerHTML
+            let spotFive = squares[i + 4].innerHTML
+            let row2 = [spotFour,spotFive];
+            let filteredRow2 = row2.filter(row => row != '')
+            switch (filteredRow2.length){
+                case 2:
+                    squares[i + 3].innerHTML = filteredRow2[0];
+                    squares[i + 4].innerHTML = filteredRow2[1];
+                    break;
+                case 1:
+                    squares[i + 3].innerHTML = filteredRow2[0];
+                    squares[i + 4].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i + 3].innerHTML = '';
+                    squares[i + 4].innerHTML = '';
+                    break;
             }
         }
     }
+}
+
+function moveUp(){
+    upNoGreenNoGray()
+    upWithGray()
+}
+
+function upNoGreenNoGray() {
+    for (let i=0; i < 5; i++) {
+        if (divs[i+7].style.backgroundColor != "grey" && divs[i+12].style.backgroundColor != "grey" && divs[i+17].style.backgroundColor != "grey" && divs[i+22].style.backgroundColor != "grey" && divs[i+27].style.backgroundColor != "grey"){
+            let spotOne = squares[i].innerHTML
+            let spotTwo = squares[i+5].innerHTML
+            let spotThree = squares[i+10].innerHTML
+            let spotFour = squares[i+15].innerHTML
+            let spotFive = squares[i+20].innerHTML
+            let spotSix = squares [i+25].innerHTML
+            let row = [spotOne,spotTwo,spotThree,spotFour,spotFive,spotSix];
+            let filteredRow = row.filter(row => row != '')
+            switch (filteredRow.length){
+                case 6:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = filteredRow[1];
+                    squares[i +10].innerHTML = filteredRow[2];
+                    squares[i +15].innerHTML = filteredRow[3];
+                    squares[i +20].innerHTML = filteredRow[4];
+                    squares[i+25].innerHTML = filteredRow[5];
+                    break;
+                case 5:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = filteredRow[1];
+                    squares[i +10].innerHTML = filteredRow[2];
+                    squares[i +15].innerHTML = filteredRow[3];
+                    squares[i +20].innerHTML = filteredRow[4];
+                    squares[i+25].innerHTML = '';
+                    break
+                case 4:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = filteredRow[1];
+                    squares[i +10].innerHTML = filteredRow[2];
+                    squares[i +15].innerHTML = filteredRow[3];
+                    squares[i +20].innerHTML = '';
+                    squares[i+25].innerHTML = '';
+                    break;
+                case 3:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = filteredRow[1];
+                    squares[i +10].innerHTML = filteredRow[2];
+                    squares[i +15].innerHTML = '';
+                    squares[i +20].innerHTML = '';
+                    squares[i+25].innerHTML = '';
+                    break;
+                case 2:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = filteredRow[1];
+                    squares[i +10].innerHTML = '';
+                    squares[i +15].innerHTML = '';
+                    squares[i +20].innerHTML = '';
+                    squares[i+25].innerHTML = '';
+                    break;
+                case 1:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = '';
+                    squares[i +10].innerHTML = '';
+                    squares[i +15].innerHTML = '';
+                    squares[i +20].innerHTML = '';
+                    squares[i+25].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i].innerHTML = '';
+                    squares[i +5].innerHTML = '';
+                    squares[i +10].innerHTML = '';
+                    squares[i +15].innerHTML = '';
+                    squares[i +20].innerHTML = '';
+                    squares[i+25].innerHTML = '';
+                    break;
+            }
+        }
+    }
+}
+
+function upWithGray(){
+    for (let i=0; i < 5; i++) {
+        if ( divs[i+12].style.backgroundColor != "grey" && divs[i+17].style.backgroundColor != "grey" && divs[i+22].style.backgroundColor != "grey" && divs[i+27].style.backgroundColor == "grey"){
+            let spotOne = squares[i].innerHTML
+            let spotTwo = squares[i+5].innerHTML
+            let spotThree = squares[i+10].innerHTML
+            let spotFour = squares[i+15].innerHTML
+            let spotFive = squares[i+20].innerHTML
+            let row = [spotOne,spotTwo,spotThree,spotFour,spotFive];
+            let filteredRow = row.filter(row => row != '')
+            switch (filteredRow.length){
+                case 5:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = filteredRow[1];
+                    squares[i +10].innerHTML = filteredRow[2];
+                    squares[i +15].innerHTML = filteredRow[3];
+                    squares[i +20].innerHTML = filteredRow[4];
+                    break
+                case 4:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = filteredRow[1];
+                    squares[i +10].innerHTML = filteredRow[2];
+                    squares[i +15].innerHTML = filteredRow[3];
+                    squares[i +20].innerHTML = '';
+                    break;
+                case 3:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = filteredRow[1];
+                    squares[i +10].innerHTML = filteredRow[2];
+                    squares[i +15].innerHTML = '';
+                    squares[i +20].innerHTML = '';
+                    break;
+                case 2:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = filteredRow[1];
+                    squares[i +10].innerHTML = '';
+                    squares[i +15].innerHTML = '';
+                    squares[i +20].innerHTML = '';
+                    break;
+                case 1:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = '';
+                    squares[i +10].innerHTML = '';
+                    squares[i +15].innerHTML = '';
+                    squares[i +20].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i].innerHTML = '';
+                    squares[i +5].innerHTML = '';
+                    squares[i +10].innerHTML = '';
+                    squares[i +15].innerHTML = '';
+                    squares[i +20].innerHTML = '';
+                    break;
+            }
+        }
+        if (divs[i+12].style.backgroundColor != "grey" && divs[i+17].style.backgroundColor != "grey" && divs[i+22].style.backgroundColor == "grey"){
+            let spotOne = squares[i].innerHTML
+            let spotTwo = squares[i+5].innerHTML
+            let spotThree = squares[i+10].innerHTML
+            let spotFour = squares[i+15].innerHTML
+            let row = [spotOne,spotTwo,spotThree,spotFour];
+            let filteredRow = row.filter(row => row != '')
+            switch (filteredRow.length){
+                case 4:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = filteredRow[1];
+                    squares[i +10].innerHTML = filteredRow[2];
+                    squares[i +15].innerHTML = filteredRow[3];
+                    break;
+                case 3:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = filteredRow[1];
+                    squares[i +10].innerHTML = filteredRow[2];
+                    squares[i +15].innerHTML = '';
+                    break;
+                case 2:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = filteredRow[1];
+                    squares[i +10].innerHTML = '';
+                    squares[i +15].innerHTML = '';
+                    break;
+                case 1:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = '';
+                    squares[i +10].innerHTML = '';
+                    squares[i +15].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i].innerHTML = '';
+                    squares[i +5].innerHTML = '';
+                    squares[i +10].innerHTML = '';
+                    squares[i +15].innerHTML = '';
+                    break;
+            }
+        }
+        if (divs[i+12].style.backgroundColor != "grey" && divs[i+17].style.backgroundColor == "grey" && divs[i+22].style.backgroundColor != "grey" && divs[i+27].style.backgroundColor != "grey"){
+            let spotOne = squares[i].innerHTML
+            let spotTwo = squares[i+5].innerHTML
+            let spotThree = squares[i+10].innerHTML
+            let row = [spotOne,spotTwo,spotThree];
+            let filteredRow = row.filter(row => row != '')
+            switch (filteredRow.length){
+                case 3:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = filteredRow[1];
+                    squares[i +10].innerHTML = filteredRow[2];
+                    break;
+                case 2:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = filteredRow[1];
+                    squares[i +10].innerHTML = '';
+                    break;
+                case 1:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = '';
+                    squares[i +10].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i].innerHTML = '';
+                    squares[i +5].innerHTML = '';
+                    squares[i +10].innerHTML = '';
+                    break;
+            }
+            let spotFive = squares[i+ 20].innerHTML
+            let spotSix = squares[i+ 25].innerHTML
+            let row2 = [spotFive,spotSix];
+            let filteredRow2 = row2.filter(row => row != '')
+            switch (filteredRow2.length){
+                case 2:
+                    squares[i + 20].innerHTML = filteredRow2[0];
+                    squares[i + 25].innerHTML = filteredRow2[1];
+                    break;
+                case 1:
+                    squares[i + 20].innerHTML = filteredRow2[0];
+                    squares[i + 25].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i + 20].innerHTML = '';
+                    squares[i + 25].innerHTML = '';
+                    break;
+            }
+        }
+        if (divs[i+12].style.backgroundColor != "grey" && divs[i+17].style.backgroundColor == "grey" && (divs[i+22].style.backgroundColor != "grey" || divs[i+27].style.backgroundColor != "grey")){
+            let spotOne = squares[i].innerHTML
+            let spotTwo = squares[i+5].innerHTML
+            let spotThree = squares[i+10].innerHTML
+            let row = [spotOne,spotTwo,spotThree];
+            let filteredRow = row.filter(row => row != '')
+            switch (filteredRow.length){
+                case 3:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = filteredRow[1];
+                    squares[i +10].innerHTML = filteredRow[2];
+                    break;
+                case 2:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = filteredRow[1];
+                    squares[i +10].innerHTML = '';
+                    break;
+                case 1:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = '';
+                    squares[i +10].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i].innerHTML = '';
+                    squares[i +5].innerHTML = '';
+                    squares[i +10].innerHTML = '';
+                    break;
+            }
+        }
+        if (divs[i+12].style.backgroundColor == "grey" && divs[i+17].style.backgroundColor != "grey" && divs[i+22].style.backgroundColor != "grey" && divs[i+27].style.backgroundColor != "grey"){
+            let spotOne = squares[i + 15].innerHTML
+            let spotTwo = squares[i + 20].innerHTML
+            let spotThree = squares[i + 25].innerHTML
+            let row = [spotOne,spotTwo,spotThree];
+            let filteredRow = row.filter(row => row != '')
+            switch (filteredRow.length){
+                case 3:
+                    squares[i + 15].innerHTML = filteredRow[0];
+                    squares[i + 20].innerHTML = filteredRow[1];
+                    squares[i + 25].innerHTML = filteredRow[2];
+                    break;
+                case 2:
+                    squares[i + 15].innerHTML = filteredRow[0];
+                    squares[i + 20].innerHTML = filteredRow[1];
+                    squares[i + 25].innerHTML = '';
+                    break;
+                case 1:
+                    squares[i + 15].innerHTML = filteredRow[0];
+                    squares[i + 20].innerHTML = '';
+                    squares[i + 25].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i + 15].innerHTML = '';
+                    squares[i + 20].innerHTML = '';
+                    squares[i + 25].innerHTML = '';
+                    break;
+            }
+            let spotFive = squares[i].innerHTML
+            let spotSix = squares[i+ 5].innerHTML
+            let row2 = [spotFive,spotSix];
+            let filteredRow2 = row2.filter(row => row != '')
+            switch (filteredRow2.length){
+                case 2:
+                    squares[i].innerHTML = filteredRow2[0];
+                    squares[i + 5].innerHTML = filteredRow2[1];
+                    break;
+                case 1:
+                    squares[i].innerHTML = filteredRow2[0];
+                    squares[i + 5].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i].innerHTML = '';
+                    squares[i + 5].innerHTML = '';
+                    break;
+            }
+        }
+        if (divs[i+12].style.backgroundColor == "grey" && divs[i+17].style.backgroundColor != "grey" && divs[i+22].style.backgroundColor == "grey" && divs[i+27].style.backgroundColor != "grey"){
+            let spotFive = squares[i].innerHTML
+            let spotSix = squares[i+ 5].innerHTML
+            let row2 = [spotFive,spotSix];
+            let filteredRow2 = row2.filter(row => row != '')
+            switch (filteredRow2.length){
+                case 2:
+                    squares[i].innerHTML = filteredRow2[0];
+                    squares[i + 5].innerHTML = filteredRow2[1];
+                    break;
+                case 1:
+                    squares[i].innerHTML = filteredRow2[0];
+                    squares[i + 5].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i].innerHTML = '';
+                    squares[i + 5].innerHTML = '';
+                    break;
+            }
+        }
+        if (divs[i+12].style.backgroundColor == "grey" && divs[i+17].style.backgroundColor != "grey" && divs[i+22].style.backgroundColor != "grey" && divs[i+27].style.backgroundColor == "grey"){
+            let spotFive = squares[i].innerHTML
+            let spotSix = squares[i+ 5].innerHTML
+            let row2 = [spotFive,spotSix];
+            let filteredRow2 = row2.filter(row => row != '')
+            switch (filteredRow2.length){
+                case 2:
+                    squares[i].innerHTML = filteredRow2[0];
+                    squares[i + 5].innerHTML = filteredRow2[1];
+                    break;
+                case 1:
+                    squares[i].innerHTML = filteredRow2[0];
+                    squares[i + 5].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i].innerHTML = '';
+                    squares[i + 5].innerHTML = '';
+                    break;
+            }
+            let spotOne = squares[i + 17].innerHTML
+            let spotTwo = squares[i+ 22].innerHTML
+            let row = [spotOne,spotTwo];
+            let filteredRow = row.filter(row => row != '')
+            switch (filteredRow.length){
+                case 2:
+                    squares[i + 17].innerHTML = filteredRow[0];
+                    squares[i + 22].innerHTML = filteredRow[1];
+                    break;
+                case 1:
+                    squares[i + 17].innerHTML = filteredRow[0];
+                    squares[i + 22].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i + 17].innerHTML = '';
+                    squares[i + 22].innerHTML = '';
+                    break;
+            }
+        }
+        if (divs[i+12].style.backgroundColor == "grey" && divs[i+17].style.backgroundColor == "grey" && divs[i+22].style.backgroundColor != "grey" && divs[i+27].style.backgroundColor != "grey"){
+            let spotFive = squares[i].innerHTML
+            let spotSix = squares[i+ 5].innerHTML
+            let row2 = [spotFive,spotSix];
+            let filteredRow2 = row2.filter(row => row != '')
+            switch (filteredRow2.length){
+                case 2:
+                    squares[i].innerHTML = filteredRow2[0];
+                    squares[i + 5].innerHTML = filteredRow2[1];
+                    break;
+                case 1:
+                    squares[i].innerHTML = filteredRow2[0];
+                    squares[i + 5].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i].innerHTML = '';
+                    squares[i + 5].innerHTML = '';
+                    break;
+            }
+            let spotOne = squares[i + 22].innerHTML
+            let spotTwo = squares[i+ 27].innerHTML
+            let row = [spotOne,spotTwo];
+            let filteredRow = row.filter(row => row != '')
+            switch (filteredRow.length){
+                case 2:
+                    squares[i + 22].innerHTML = filteredRow[0];
+                    squares[i + 27].innerHTML = filteredRow[1];
+                    break;
+                case 1:
+                    squares[i + 22].innerHTML = filteredRow[0];
+                    squares[i + 27].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i + 22].innerHTML = '';
+                    squares[i + 27].innerHTML = '';
+                    break;
+            }
+        }
+    }
+}
+
     
 
 
