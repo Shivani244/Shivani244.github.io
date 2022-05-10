@@ -1791,82 +1791,108 @@ function addLetter(letter) {
               //  greyBoxOnly();
                 break;
             case 65: //letter a
-                checkLetter('A');  
+                checkLetter('A');
+                checkBoard();
                 break; 
             case 66: 
-                checkLetter('B');  
+                checkLetter('B');
+                checkBoard();
                 break;  
             case 67: 
-                checkLetter('C');  
+                checkLetter('C');
+                checkBoard();
                 break;  
              case 68: 
-                checkLetter('D');  
+                checkLetter('D'); 
+                checkBoard();
                 break;
              case 69: 
-                checkLetter('E');  
+                checkLetter('E');
+                checkBoard();
                 break;  
             case 70: 
-                checkLetter('F');  
+                checkLetter('F'); 
+                checkBoard();
                 break;  
             case 71: 
-                checkLetter('G');  
+                checkLetter('G'); 
+                checkBoard();
                 break;   
             case 72: 
-                checkLetter('H');  
+                checkLetter('H'); 
+                checkBoard();
                 break;   
             case 73: 
-                checkLetter('I');  
+                checkLetter('I'); 
+                checkBoard();
                 break;  
             case 74:
-                checkLetter('J'); 
+                checkLetter('J');
+                checkBoard();
                 break; 
             case 75: 
-                checkLetter('K');  
+                checkLetter('K');
+                checkBoard();
                 break;  
             case 76: 
-                checkLetter('L');  
+                checkLetter('L'); 
+                checkBoard();
                 break;  
             case 77: 
                 checkLetter('M');  
+                checkBoard();
                 break;  
             case 78: 
-                checkLetter('N');  
+                checkLetter('N'); 
+                checkBoard();
                 break;  
             case 79: 
-                checkLetter('O');  
+                checkLetter('O'); 
+                checkBoard();
                 break;  
              case 80: 
                 checkLetter('P');  
+                checkBoard();
                 break;  
             case 81: 
                 checkLetter('Q');  
+                checkBoard();
                 break;  
             case 82: 
-                checkLetter('R');  
+                checkLetter('R'); 
+                checkBoard();
                 break; 
             case 83: 
                 checkLetter('S');  
+                checkBoard();
                 break;  
             case 84: 
-                checkLetter('T');  
+                checkLetter('T'); 
+                checkBoard();
                 break;
             case 85: 
-                checkLetter('U');  
+                checkLetter('U'); 
+                checkBoard();
                 break;   
             case 86: 
                 checkLetter('V');  
+                checkBoard();
                 break; 
             case 87: 
-                checkLetter('W');  
+                checkLetter('W');
+                checkBoard();
                 break; 
             case 88: 
-                checkLetter('X');  
+                checkLetter('X'); 
+                checkBoard();
                 break; 
             case 89: 
                 checkLetter('Y');  
+                checkBoard();
                 break; 
             case 90: 
                 checkLetter('Z');  
+                checkBoard();
                 break; 
           case 8:
                 deleteLetter(); 
