@@ -1720,9 +1720,19 @@ function addLetter(letter) {
                 }
             }
         }
+        
         for (let i = 0; i < width*height; i++){
             for (let j = 0; j < word.length; j++){
-                if (squares[i].innerHTML == word[j] && (i == j || i == j+5 || i == j+10 || i== j+15 || i == j+20 || i == j + 25)){
+                if (squares[i].innerHTML == word[j] && (i == j+5 || i == j+10 || i== j+15 || i == j+20 || i == j + 25)){
+                    let child = divs[i + 2];
+                    child.style.backgroundColor = "lightgreen";
+                }
+            }
+        }
+
+        for (let i = 0; i < width*height; i++){
+            for (let j = 0; j < word.length; j++){
+                if (squares[i].innerHTML == word[j] && i == j){
                     let child = divs[i + 2];
                     child.style.backgroundColor = "green";
                 }
