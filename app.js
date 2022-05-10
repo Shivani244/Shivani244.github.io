@@ -1252,6 +1252,35 @@ function upWithGray(){
                     break;
             }
         }
+        if (divs[i+12].style.backgroundColor != "grey" && divs[i+17].style.backgroundColor == "grey" && (divs[i+22].style.backgroundColor == "grey" || divs[i+27].style.backgroundColor == "grey")){
+            let spotOne = squares[i].innerHTML
+            let spotTwo = squares[i+5].innerHTML
+            let spotThree = squares[i+10].innerHTML
+            let row = [spotOne,spotTwo,spotThree];
+            let filteredRow = row.filter(row => row != '')
+            switch (filteredRow.length){
+                case 3:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = filteredRow[1];
+                    squares[i +10].innerHTML = filteredRow[2];
+                    break;
+                case 2:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = filteredRow[1];
+                    squares[i +10].innerHTML = '';
+                    break;
+                case 1:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i +5].innerHTML = '';
+                    squares[i +10].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i].innerHTML = '';
+                    squares[i +5].innerHTML = '';
+                    squares[i +10].innerHTML = '';
+                    break;
+            }
+        }
         if (divs[i+12].style.backgroundColor != "grey" && divs[i+17].style.backgroundColor == "grey" && divs[i+22].style.backgroundColor != "grey" && divs[i+27].style.backgroundColor != "grey"){
             let spotOne = squares[i].innerHTML
             let spotTwo = squares[i+5].innerHTML
