@@ -491,19 +491,6 @@ function rightWithGreen(){
                     break;
             }
         }
-        if (divs[i+2].style.backgroundColor == "green" && divs[i+3].style.backgroundColor == "green" && divs[i+4].style.backgroundColor == "green" && divs[i+5].style.backgroundColor == "green"){
-            let spotFive = squares[i+4].innerHTML
-            let row = [spotFive];
-            let filteredRow = row.filter(row => row != '')
-            switch (filteredRow.length) {
-                case 1:
-                    squares[i +4].innerHTML = filteredRow[0];
-                    break;
-                case 0:
-                    squares[i +4].innerHTML = '';
-                    break;
-            }   
-        }
         if (divs[i+2].style.backgroundColor != "green" && divs[i+3].style.backgroundColor != "green" && divs[i+4].style.backgroundColor != "green" && divs[i+5].style.backgroundColor == "green"){
             let spotOne = squares[i].innerHTML
             let spotTwo = squares[i+1].innerHTML
@@ -1389,6 +1376,26 @@ function upWithGray(){
             }
         }
         if (divs[i+12].style.backgroundColor == "grey" && divs[i+17].style.backgroundColor != "grey" && divs[i+22].style.backgroundColor == "grey" && divs[i+27].style.backgroundColor != "grey"){
+            let spotFive = squares[i].innerHTML
+            let spotSix = squares[i+ 5].innerHTML
+            let row2 = [spotFive,spotSix];
+            let filteredRow2 = row2.filter(row => row != '')
+            switch (filteredRow2.length){
+                case 2:
+                    squares[i].innerHTML = filteredRow2[0];
+                    squares[i + 5].innerHTML = filteredRow2[1];
+                    break;
+                case 1:
+                    squares[i].innerHTML = filteredRow2[0];
+                    squares[i + 5].innerHTML = '';
+                    break;
+                case 0:
+                    squares[i].innerHTML = '';
+                    squares[i + 5].innerHTML = '';
+                    break;
+            }
+        }
+        if (divs[i+12].style.backgroundColor == "grey" && divs[i+17].style.backgroundColor == "grey" && divs[i+22].style.backgroundColor == "grey" && divs[i+27].style.backgroundColor != "grey"){
             let spotFive = squares[i].innerHTML
             let spotSix = squares[i+ 5].innerHTML
             let row2 = [spotFive,spotSix];
