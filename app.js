@@ -865,7 +865,7 @@ function leftWithGray(){
 
 function leftWithGreen(){
     for (let i = 0; i < width*height; i= i+5){
-        if (divs[i+2].style.backgroundColor != "green" && divs[i+3].style.backgroundColor != "green" && divs[i+4].style.backgroundColor != "green" && divs[i+5].style.backgroundColor != "green"  && divs[i+6].style.backgroundColor == "green" ){
+        if (divs[i+3].style.backgroundColor != "green" && divs[i+4].style.backgroundColor != "green" && divs[i+5].style.backgroundColor != "green"  && divs[i+6].style.backgroundColor == "green" ){
             let spotOne = squares[i].innerHTML
             let spotTwo = squares[i+1].innerHTML
             let spotThree = squares[i+2].innerHTML
@@ -905,7 +905,7 @@ function leftWithGreen(){
                     break;
             }
         }
-        if (divs[i+2].style.backgroundColor != "green" && divs[i+3].style.backgroundColor != "green" && divs[i+4].style.backgroundColor != "green" && divs[i+5].style.backgroundColor == "green"){
+        if (divs[i+3].style.backgroundColor != "green" && divs[i+4].style.backgroundColor != "green" && divs[i+5].style.backgroundColor == "green"){
             let spotOne = squares[i].innerHTML
             let spotTwo = squares[i+1].innerHTML
             let spotThree = squares[i+2].innerHTML
