@@ -143,7 +143,7 @@ function rightNoGreenNoGray() {
 
 function rightWithGray(){
     for (let i = 0; i < width*height; i = i + 5){
-        if (divs[i+2].style.backgroundColor == "grey" && divs[i+3].style.backgroundColor != "grey" && divs[i+4].style.backgroundColor != "grey" && divs[i+5].style.backgroundColor != "grey"  && divs[i+6].style.backgroundColor != "grey" ){
+        if (divs[i+2].style.backgroundColor == "grey" && divs[i+3].style.backgroundColor != "grey" && divs[i+4].style.backgroundColor != "grey" && divs[i+5].style.backgroundColor != "grey"){
             let spotTwo = squares[i+1].innerHTML
             let spotThree = squares[i+2].innerHTML
             let spotFour = squares[i+3].innerHTML
@@ -364,7 +364,7 @@ function rightWithGray(){
 
 function rightWithGreen(){
     for (let i = 0; i < width*height; i = i + 5){
-        if (divs[i+2].style.backgroundColor == "green" && divs[i+3].style.backgroundColor != "green" && divs[i+4].style.backgroundColor != "green" && divs[i+5].style.backgroundColor != "green"  && divs[i+6].style.backgroundColor != "green" ){
+        if (divs[i+2].style.backgroundColor == "green" && divs[i+3].style.backgroundColor != "green" && divs[i+4].style.backgroundColor != "green" && divs[i+5].style.backgroundColor != "green"){
             let spotTwo = squares[i+1].innerHTML
             let spotThree = squares[i+2].innerHTML
             let spotFour = squares[i+3].innerHTML
@@ -404,7 +404,7 @@ function rightWithGreen(){
                     break;
             }   
         }
-        if (divs[i+3].style.backgroundColor == "green" && divs[i+4].style.backgroundColor != "green" && divs[i+5].style.backgroundColor != "green"  && divs[i+6].style.backgroundColor != "green" ){
+        if (divs[i+3].style.backgroundColor == "green" && divs[i+4].style.backgroundColor != "green" && divs[i+5].style.backgroundColor != "green"){
             let spotThree = squares[i+2].innerHTML
             let spotFour = squares[i+3].innerHTML
             let spotFive = squares[i+4].innerHTML
@@ -433,7 +433,7 @@ function rightWithGreen(){
                     break;
             }   
         }
-        if (divs[i+3].style.backgroundColor == "green" && divs[i+4].style.backgroundColor == "green" && divs[i+5].style.backgroundColor != "green"  && divs[i+6].style.backgroundColor != "green" ){
+        if (divs[i+3].style.backgroundColor == "green" && divs[i+4].style.backgroundColor == "green" && divs[i+5].style.backgroundColor != "green"){
             let spotFour = squares[i+3].innerHTML
             let spotFive = squares[i+4].innerHTML
             let row = [spotFour,spotFive];
@@ -453,7 +453,7 @@ function rightWithGreen(){
                     break;
             }   
         }
-        if (divs[i+2].style.backgroundColor != "green" && divs[i+3].style.backgroundColor != "green" && divs[i+4].style.backgroundColor == "green" && divs[i+5].style.backgroundColor != "green"  && divs[i+6].style.backgroundColor != "green" ){
+        if (divs[i+2].style.backgroundColor != "green" && divs[i+3].style.backgroundColor != "green" && divs[i+4].style.backgroundColor == "green" && divs[i+5].style.backgroundColor != "green"){
             let spotFour = squares[i+3].innerHTML
             let spotFive = squares[i+4].innerHTML
             let row = [spotFour,spotFive];
