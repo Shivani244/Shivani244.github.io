@@ -1671,7 +1671,7 @@ function addLetter(letter) {
                if (squares[i].innerHTML == '-'){
                     squares[i].innerHTML = letter
                     let child = divs[i + 2];
-                    child.style.backgroundColor = "green";
+                    child.style.backgroundColor = "lightgreen";
                 }
             }
     }
@@ -1717,6 +1717,14 @@ function addLetter(letter) {
                 if (squares[i].innerHTML == word[j]){
                     let child = divs[i + 2];
                     child.style.backgroundColor = "#fee08b";
+                }
+            }
+        }
+        for (let i = 0; i < width*height; i++){
+            for (let j = 0; j < word.length; j++){
+                if (squares[i].innerHTML == word[j]){
+                    let child = divs[i + 2];
+                    child.style.backgroundColor = "lightgreen";
                 }
             }
         }
