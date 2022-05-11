@@ -14,6 +14,7 @@ h1.title {
     text-align: center;
     float: left;
     border-bottom: solid 3px #000000;
+    justify-content: center;
   }
   .grid {
       display: flex; 
@@ -23,11 +24,13 @@ h1.title {
       background-color: rgb(248, 196, 245);
       border-radius: 5px;
       margin: 100px 350px 100px;
+      grid-gap: 5px; 
+      justify-content: center;
   }
 
  .grid div{
-    width: 70px; 
-    height: 64px;
+    width: 60px; 
+    height: 60px;
     border: 2px solid#000000;
     background-color: rgb(248, 196, 245);
     font-size: 50px;
@@ -43,6 +46,7 @@ h1.title {
     margin:  1px 275px 10px; 
     text-align: center;
     text-justify: center;
+    justify-content: center;
 
 }
 
@@ -56,13 +60,16 @@ h1.title {
 }
 
 .key-container button:nth-child(11){
-    margin-left: 30px;
+    margin-left: 10px;
 }
-.key-container button:nth-child(20){
+.key-container button:nth-child(27){
     width: 68px;
 }
 .key-container button:nth-child(28){
-    width: 68px;
+    margin-right: 40px;
+}
+.key-container button:nth-child(29){
+    margin-left: -30px;
 }
 .popup{
    width: 400px; 
@@ -97,29 +104,3 @@ h1.title {
     cursor: pointer; 
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 }
-.popup1{
-    width: 400px; 
-    background: #fff; 
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%) scale(0.1); 
-    text-align: center; 
-     padding: 0 20px; 
-     color: #333;
-     visibility: hidden;
-    transition: transform 0.4s, top 0.4s; 
-}
-.close{
-    position: absolute; 
-    top: 0; 
-    right: 0; 
-    padding:10px 20px; 
-    background: pink;
-    color: #fff;
-    cursor: pointer; 
-}
-.open-popup1{
-    visibility: visible;
-    transform: translate(-50%, -50%) scale(1);
-    top: 50%
