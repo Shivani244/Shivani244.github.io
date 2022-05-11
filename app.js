@@ -1551,7 +1551,7 @@ function upWithGray(){
 
     function moveDown (){
     downNoGreenNoGray()
-    downWithGray()
+    downWithGrayandGreen()
 }
 
 function downNoGreenNoGray() {
@@ -1627,7 +1627,7 @@ function downNoGreenNoGray() {
     }
 }
 
-function downWithGray(){
+function downWithGrayAndGreen(){
     for (let i = 0; i < 5; i++){
         if (divs[i+2].style.backgroundColor != "green" && divs[i+12].style.backgroundColor != "grey" && divs[i+17].style.backgroundColor != "grey" && divs[i+22].style.backgroundColor == "grey"){
             let spotOne = squares[i].innerHTML
@@ -1679,6 +1679,7 @@ function downWithGray(){
                 case 3:
                     squares[i].innerHTML = filteredRow[0];
                     squares[i +5].innerHTML = filteredRow[1];
+                    squares[i+10].innerHTML = filteredRow[2];
                     break;
                 case 2:
                     squares[i].innerHTML = '';
@@ -1694,6 +1695,52 @@ function downWithGray(){
                     squares[i].innerHTML = '';
                     squares[i +5].innerHTML = '';
                     squares[i+10].innerHTML = '';
+                    break;
+            }
+        }
+        if (divs[i+2].style.backgroundColor != "green" && divs[i+12].style.backgroundColor == "grey" && divs[i+17].style.backgroundColor != "grey" && divs[i+22].style.backgroundColor != "grey"){
+            let spotOne = squares[i + 17].innerHTML
+            let spotTwo = squares[i + 22].innerHTML
+            let spotThree = squares[i + 27].innerHTML
+            let row = [spotOne,spotTwo,spotThree];
+            let filteredRow = row.filter(row => row != '')
+            switch (filteredRow.length){
+                case 3:
+                    squares[i + 17].innerHTML = filteredRow[0];
+                    squares[i + 22].innerHTML = filteredRow[1];
+                    break;
+                case 2:
+                    squares[i + 17].innerHTML = '';
+                    squares[i + 22].innerHTML = filteredRow[0];
+                    squares[i + 27].innerHTML = filteredRow[1];
+                    break;
+                case 1:
+                    squares[i + 17].innerHTML = '';
+                    squares[i + 22].innerHTML = '';
+                    squares[i + 27].innerHTML = filteredRow[0];
+                    break;
+                case 0:
+                    squares[i + 17].innerHTML = '';
+                    squares[i + 22].innerHTML = '';
+                    squares[i + 27].innerHTML = '';
+                    break;
+            }
+            let spotFour = squares[i].innerHTML
+            let spotFive = squares[i+5].innerHTML
+            let row = [spotFour,spotFive];
+            let filteredRow = row.filter(row => row != '')
+            switch (filteredRow.length){
+                case 2:
+                    squares[i].innerHTML = filteredRow[0];
+                    squares[i + 5].innerHTML = filteredRow[1];
+                    break;
+                case 1:
+                    squares[i].innerHTML = '';
+                    squares[i + 5].innerHTML = filteredRow[0];
+                    break;
+                case 0:
+                    squares[i].innerHTML = '';
+                    squares[i + 5].innerHTML = '';
                     break;
             }
         }
@@ -1955,11 +2002,7 @@ function addLetter(letter) {
             case 90: 
                 checkLetter('Z');  
                 checkBoard();
-                break; 
-          case 8:
-                deleteLetter(); 
-                break;  
-                
+                break;       
         }
         CorrectWord(); 
     }
