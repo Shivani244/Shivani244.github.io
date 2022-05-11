@@ -35,7 +35,32 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
 
 const handleClick = () => {
-    console.log('clicked')
+    console.log('clicked', letter)
+        if (letter == 'New Letter'){
+            generate();
+        }
+        if(letter == '←'){
+            moveLeft();
+            checkBoard();
+        }
+        if(letter == '↑'){
+            moveUp(); 
+            checkBoard(); 
+        }
+        if(letter == '↓'){
+            moveDown();
+            checkBoard();  
+        }
+        if(letter == '→'){
+            moveRight(); 
+            checkBoard(); 
+        }
+        if(letter != 'New Letter' && letter != '←' && letter != '↑' && letter != '↓' && letter != '→' ){
+            addLetterWrong(letter); 
+            addLetter(letter); 
+           addLetterRight(letter); 
+           checkLetter(); 
+        }
  } 
 
 const width = 5
@@ -73,8 +98,9 @@ function generate() {
 keys.forEach(key => {
       const buttonElement = document.createElement('button')
       buttonElement.textContent = key
+      buttonElement.setAttribute('id', key)
       keyboard.append(buttonElement)
-      buttonElement.addEventListener('click', handleClick)
+      buttonElement.addEventListener('click', () => handleClick(key))
 })
 
 function moveRight(){
