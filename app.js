@@ -1609,7 +1609,7 @@ function upWithGray(){
 
 function moveDown (){
     downNoGreenNoGray()
-    downWithGray()
+    downWithGrayAndGreen()
 }
 
 function downNoGreenNoGray() {
