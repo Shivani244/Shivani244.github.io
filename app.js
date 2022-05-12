@@ -1867,16 +1867,16 @@ function downWithGrayAndGreen(){
             }
             let spotFour = squares[i].innerHTML
             let spotFive = squares[i+5].innerHTML
-            let row = [spotFour,spotFive];
-            let filteredRow = row.filter(row => row != '')
-            switch (filteredRow.length){
+            let row2 = [spotFour,spotFive];
+            let filteredRow2 = row2.filter(row => row != '')
+            switch (filteredRow2.length){
                 case 2:
-                    squares[i].innerHTML = filteredRow[0];
-                    squares[i + 5].innerHTML = filteredRow[1];
+                    squares[i].innerHTML = filteredRow2[0];
+                    squares[i + 5].innerHTML = filteredRow2[1];
                     break;
                 case 1:
                     squares[i].innerHTML = '';
-                    squares[i + 5].innerHTML = filteredRow[0];
+                    squares[i + 5].innerHTML = filteredRow2[0];
                     break;
                 case 0:
                     squares[i].innerHTML = '';
