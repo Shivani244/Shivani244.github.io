@@ -81,6 +81,7 @@ function moveRight(){
     rightNoGreenNoGray()
     rightWithGray()
     rightWithGreen()
+    checkBoard()
 }
 
 function rightNoGreenNoGray() {
@@ -660,6 +661,7 @@ function moveLeft(){
     leftNoGreenNoGray()
     leftWithGray()
     leftWithGreen()
+    checkBoard()
 }
 
 function leftNoGreenNoGray() {
@@ -1155,6 +1157,7 @@ function leftWithGreen(){
 function moveUp(){
     upNoGreenNoGray()
     upWithGray()
+    checkBoard()
 }
 
 function upNoGreenNoGray() {
@@ -1610,6 +1613,7 @@ function upWithGray(){
 function moveDown (){
     downNoGreenNoGray()
     downWithGrayAndGreen()
+    checkBoard()
 }
 
 function downNoGreenNoGray() {
