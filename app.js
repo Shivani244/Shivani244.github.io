@@ -577,8 +577,8 @@ function rightWithGreen(){
                     squares[i + 2].innerHTML = filteredRow[1];
                     break;
                 case 1:
-                    squares[i + 2].innerHTML = '';
-                    squares[i + 3].innerHTML = filteredRow[0];
+                    squares[i + 1].innerHTML = '';
+                    squares[i + 2].innerHTML = filteredRow[0];
                     break;
                 case 0:
                     squares[i + 1].innerHTML = '';
