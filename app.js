@@ -1891,7 +1891,7 @@ function downWithGrayAndGreen(){
         if (divs[i+2].style.backgroundColor == "green" && divs[i+12].style.backgroundColor != "grey" && divs[i+17].style.backgroundColor == "grey" && divs[i+22].style.backgroundColor != "grey"){
             let spotTwo = squares[i + 22].innerHTML
             let spotThree = squares[i + 27].innerHTML
-            let row = [spotOne,spotTwo,spotThree];
+            let row = [spotTwo,spotThree];
             let filteredRow = row.filter(row => row != '')
             switch (filteredRow.length){
                 case 2:
