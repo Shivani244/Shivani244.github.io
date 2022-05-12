@@ -16,8 +16,6 @@
         <p>thank you for playing!</p>
         <button type="button" onclick="closePopup()">close</button>
     </div>
-
-    <script src="confetti.js"></script>
    
     <canvas id="my-canvas"></canvas>
 
@@ -25,9 +23,6 @@
     function closePopup(){
         popup.classList.remove("open-popup");
     }
-    var confettiSettings = { target: 'my-canvas' };
-    var confetti = new ConfettiGenerator(confettiSettings);
-    confetti.render();
     </script>
 
 </body>
