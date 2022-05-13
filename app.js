@@ -665,7 +665,7 @@ function moveLeft(){
 }
 
 function leftNoGreenNoGray() {
-    for (let i=0; i < 30; i= i+5) {
+    for (let i=0; i < width*height; i= i+5) {
         if (divs[i+3].style.backgroundColor != "grey" && divs[i+3].style.backgroundColor != "green" && divs[i+4].style.backgroundColor != "grey" && divs[i+4].style.backgroundColor != "green" && divs[i+5].style.backgroundColor != "grey" && divs[i+5].style.backgroundColor != "green" && divs[i+6].style.backgroundColor != "grey" && divs[i+6].style.backgroundColor != "green"){
             let spotOne = squares[i].innerHTML
             let spotTwo = squares[i+1].innerHTML
