@@ -55,11 +55,9 @@ const handleClick = (letter) => {
             moveRight(); 
             checkBoard(); 
         }
-        if(letter != 'New Letter' && letter != '←' && letter != '↑' && letter != '↓' && letter != '→' ){
-            addLetterWrong(letter); 
-            addLetter(letter); 
-           addLetterRight(letter); 
-           checkLetter(); 
+        if(letter != 'New Letter' && letter != '←' && letter != '↑' && letter != '↓' && letter != '→' ){ 
+           checkLetter(letter);
+           checkBoard();
         }
     } 
 
