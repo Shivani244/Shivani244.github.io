@@ -31,11 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'B',
         'N',
         'M',
-        '↑',
         'New Letter'
-        '←',
-        '↓',
-        '→'
     ]
 
     const handleClick = (letter) => {
@@ -2311,7 +2307,6 @@ function addLetter(letter) {
             case 39: //right arrow
                 moveRight();
                 checkBoard();           
-
                 break;
            case 40: //down arrow
                 moveDown();
