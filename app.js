@@ -31,7 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
         'B',
         'N',
         'M',
-        'New Letter'
+        'New Letter',
+        '←',
+        '↑',
+        '↓',
+        '→'
     ]
 
     const handleClick = (letter) => {
