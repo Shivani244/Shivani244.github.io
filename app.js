@@ -1,7 +1,6 @@
 import {wordarray} from './words.js';
 document.addEventListener('DOMContentLoaded', () => {
     const gridDisplay = document.querySelector('.grid')
-    const resultDisplay = document.getElementById(' result')
     const keyboard = document.querySelector('.key-container')
     const keys = [
         'Q',
@@ -95,6 +94,7 @@ function generate() {
        if (squares[randomNumber].innerHTML == '') {
           squares[randomNumber].innerHTML = '-'
        } else generate()
+       checkBoard()
 }
 
 keys.forEach(key => {
@@ -109,6 +109,7 @@ function moveRight(){
     rightNoGreenNoGray()
     rightWithGray()
     rightWithGreen()
+    checkBoard()
 }
 
 function rightNoGreenNoGray() {
@@ -235,26 +236,6 @@ function rightWithGray(){
                     break;
                 case 0:
                     squares[i +2].innerHTML = '';
-                    squares[i +3].innerHTML = '';
-                    squares[i +4].innerHTML = '';
-                    break;
-            }   
-        }
-        if (divs[i+3].style.backgroundColor == "grey" && divs[i+4].style.backgroundColor == "grey" && divs[i+5].style.backgroundColor != "grey"  && divs[i+6].style.backgroundColor != "grey" ){
-            let spotFour = squares[i+3].innerHTML
-            let spotFive = squares[i+4].innerHTML
-            let row = [spotFour,spotFive];
-            let filteredRow = row.filter(row => row != '')
-            switch (filteredRow.length) {
-                case 2:
-                    squares[i +3].innerHTML = filteredRow[0];
-                    squares[i +4].innerHTML = filteredRow[1];
-                    break;
-                case 1:
-                    squares[i +3].innerHTML = '';
-                    squares[i +4].innerHTML = filteredRow[0];
-                    break;
-                case 0:
                     squares[i +3].innerHTML = '';
                     squares[i +4].innerHTML = '';
                     break;
@@ -408,26 +389,6 @@ function rightWithGray(){
             }
         }
         if ((divs[i+2].style.backgroundColor == "grey" || divs[i+3].style.backgroundColor == "grey") && divs[i+4].style.backgroundColor == "grey" && divs[i+5].style.backgroundColor != "grey"  && divs[i+6].style.backgroundColor != "grey" ){
-            let spotFour = squares[i+3].innerHTML
-            let spotFive = squares[i+4].innerHTML
-            let row = [spotFour,spotFive];
-            let filteredRow = row.filter(row => row != '')
-            switch (filteredRow.length) {
-                case 2:
-                    squares[i +3].innerHTML = filteredRow[0];
-                    squares[i +4].innerHTML = filteredRow[1];
-                    break;
-                case 1:
-                    squares[i +3].innerHTML = '';
-                    squares[i +4].innerHTML = filteredRow[0];
-                    break;
-                case 0:
-                    squares[i +3].innerHTML = '';
-                    squares[i +4].innerHTML = '';
-                    break;
-            }
-        }
-        if (divs[i+2].style.backgroundColor == "grey" && (divs[i+3].style.backgroundColor == "grey" || divs[i+4].style.backgroundColor == "grey") && divs[i+5].style.backgroundColor != "grey"  && divs[i+6].style.backgroundColor != "grey" ){
             let spotFour = squares[i+3].innerHTML
             let spotFive = squares[i+4].innerHTML
             let row = [spotFour,spotFive];
@@ -688,6 +649,7 @@ function moveLeft(){
     leftNoGreenNoGray()
     leftWithGray()
     leftWithGreen()
+    checkBoard()
 }
 
 function leftNoGreenNoGray() {
@@ -854,21 +816,6 @@ function leftWithGray(){
                 case 0:
                     squares[i + 3].innerHTML = '';
                     squares[i + 4].innerHTML = '';
-                    break;
-            }
-        }
-        if (divs[i+2].style.backgroundColor == "grey" && divs[i+3].style.backgroundColor == "grey" && divs[i+4].style.backgroundColor == "grey" && divs[i+5].style.backgroundColor == "grey"){  
-            let spotOne = squares[i].innerHTML
-            let row = [spotOne];
-            let filteredRow = row.filter(row => row != '')
-            switch (filteredRow.length){
-                case 1:
-                    squares[i].innerHTML = filteredRow[0];
-                    squares[i +1].innerHTML = '';
-                    break;
-                case 0:
-                    squares[i].innerHTML = '';
-                    squares[i +1].innerHTML = '';
                     break;
             }
         }
@@ -1183,6 +1130,7 @@ function leftWithGreen(){
 function moveUp(){
     upNoGreenNoGray()
     upWithGray()
+    checkBoard()
 }
 
 function upNoGreenNoGray() {
@@ -1638,6 +1586,7 @@ function upWithGray(){
 function moveDown (){
     downNoGreenNoGray()
     downWithGrayAndGreen()
+    checkBoard()
 }
 
 function downNoGreenNoGray() {
@@ -2156,7 +2105,7 @@ function downWithGrayAndGreen(){
         if (divs[i+2].style.backgroundColor == "green" && divs[i+12].style.backgroundColor == "grey" && divs[i+17].style.backgroundColor == "grey" && divs[i+22].style.backgroundColor != "grey"){
             let spotTwo = squares[i + 22].innerHTML
             let spotThree = squares[i + 27].innerHTML
-            let row = [spotOne,spotTwo,spotThree];
+            let row = [spotTwo,spotThree];
             let filteredRow = row.filter(row => row != '')
             switch (filteredRow.length){
                 case 2:
@@ -2293,12 +2242,13 @@ function addLetter(letter) {
         e.preventDefault();
         switch (e.keyCode) {
             case 13: //enter
-           for(let i = 0; i < width*height; i++){
-             if(squares[i].innerHTML == "-"){
-                 return; 
-             }
-           }
-           generate(); 
+                for(let i = 0; i < width*height; i++){
+                    if(squares[i].innerHTML == "-"){
+                    return; 
+                    }
+                }
+                generate();
+                checkBoard(); 
                 break;
             case 37: //left arrow
                 moveLeft();
