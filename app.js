@@ -1603,7 +1603,7 @@ function upWithGray(){
     }
 }
 
-function moveDown (){
+function moveDown(){
     downNoGreenNoGray()
     downWithGrayAndGreen()
     checkBoard()
