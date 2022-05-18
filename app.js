@@ -1591,6 +1591,7 @@ function moveDown (){
 
 function downNoGreenNoGray() {
     for (let i=0; i < 5; i++) {
+        checkBoard()
         if (divs[i+2].style.backgroundColor != "green" && divs[i+12].style.backgroundColor != "grey" && divs[i+17].style.backgroundColor != "grey" && divs[i+22].style.backgroundColor != "grey"){
             let spotOne = squares[i].innerHTML
             let spotTwo = squares[i+5].innerHTML
@@ -1664,6 +1665,7 @@ function downNoGreenNoGray() {
 
 function downWithGrayAndGreen(){
     for (let i = 0; i < 5; i++){
+        checkBoard()
         if (divs[i+2].style.backgroundColor != "green" && divs[i+12].style.backgroundColor != "grey" && divs[i+17].style.backgroundColor != "grey" && divs[i+22].style.backgroundColor == "grey"){
             let spotOne = squares[i].innerHTML
             let spotTwo = squares[i+5].innerHTML
