@@ -2363,9 +2363,6 @@ function addLetter(letter) {
                 checkLetter('Z');
                 checkBoard();  
                 break; 
-          case 8:
-                deleteLetter(); 
-                break;  
                 
         }
         CorrectWord(); 
